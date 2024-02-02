@@ -1,17 +1,15 @@
-const pseudoField = document.querySelector('.step1-pseudo-field');
-initGame()
+const pseudoField = document.querySelector('.step2-pseudo-field');
+setTimeout(() => {
+  initGame()
+}, 1000);
 
-function vocalQuestionAssistant(responseText){
+function vocalQuestionAssistant(file){
   return new Promise((resolve) => {
-    // Utilisation de l'API Web Speech Synthesis pour lire la réponse
-    var msg = new SpeechSynthesisUtterance();
-    msg.text = responseText;
-    msg.lang = 'fr-FR';
-    // Ajout d'un écouteur pour l'événement 'end' qui résoudra la promesse une fois la parole terminée
-    msg.onend = function() {
+    let identity = new Audio(`../assets/sounds/${file}`);
+    identity.onended = function() {
       resolve();
     };
-    window.speechSynthesis.speak(msg);
+    identity.play();
   })
 }
 
@@ -33,12 +31,12 @@ function vocalResponseRecordUser() {
 async function initGame(){
   pseudoField.textContent = '_______';
   // demander pseudo
-  await vocalQuestionAssistant("Veuillez décliner votre idendité");
+  await vocalQuestionAssistant('step2_identity.mp3');
   // écouter pseudo user
   const pseudoAsk = await vocalResponseRecordUser();
   pseudoField.textContent = pseudoAsk;
   // confirmation pseudo
-  await vocalQuestionAssistant("Souhaitez vous confirmer")
+  await vocalQuestionAssistant('step2_confirmation.mp3');
   // écouter confirmation
   const confirmAsk = await vocalResponseRecordUser();
   if(confirmAsk.includes('oui') || confirmAsk.includes('ouais') || confirmAsk.includes('ouaip')){

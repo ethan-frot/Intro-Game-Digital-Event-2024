@@ -74,7 +74,6 @@ function handlePlay() {
       );
     
       if (highestValueKey === "happy" && faceScanerActive === false) {
-        console.log("happy");
         startUserScan();
       }
     }

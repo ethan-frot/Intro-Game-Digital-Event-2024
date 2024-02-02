@@ -1,3 +1,13 @@
+function vocalResponse(responseText) {
+  var msg = new SpeechSynthesisUtterance();
+  msg.text = responseText;
+  msg.lang = "fr-FR";
+  window.speechSynthesis.speak(msg);
+}
+setTimeout(function () {
+  vocalResponse("Bonjour, veuillez sourire pour commencer");
+}, 1000);
+
 const video = document.getElementById("video");
 const canvasContainer = document.getElementById("canvasContainer");
 
@@ -56,7 +66,7 @@ function handlePlay() {
       .withFaceExpressions()
       .withAgeAndGender();
 
-    const expressions = detections[0].expressions;
+    const expressions = detections[0]?.expressions;
 
     if(expressions){
       const highestValueKey = Object.keys(expressions).reduce((a, b) =>
@@ -110,15 +120,6 @@ function handlePlay() {
 }
 
 video.addEventListener("play", handlePlay);
-
-function vocalResponse(responseText) {
-  var msg = new SpeechSynthesisUtterance();
-  msg.text = responseText;
-  msg.lang = "fr-FR";
-  window.speechSynthesis.speak(msg);
-}
-
-vocalResponse("Bonjour, veuillez sourire pour commencer");
 
 function startUserScan() {
   var msg = new SpeechSynthesisUtterance();

@@ -63,7 +63,7 @@ body {
   background-position: center;
 }
 
-.ui-data-1 {
+.ui-image-1 {
   position: absolute;
   top: 50px;
   right: 50px;
@@ -202,6 +202,11 @@ canvas {
 //         STEP 3           //
 //**************************//
 
+.loading {
+  width: 100%;
+  height: 100%;
+}
+
 .ia {
   position: relative;
 }
@@ -219,7 +224,7 @@ canvas {
   width: 60%;
   height: 60%;
   position: absolute;
-  bottom: 50px;
+  top: 150px;
 }
 
 //**************************//

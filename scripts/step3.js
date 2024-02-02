@@ -10,5 +10,5 @@ setTimeout(() => {
 
   setTimeout(() => {
     window.location.href = "step4.html";
-  }, 1000);
+  }, 3000);
 }, 3000);

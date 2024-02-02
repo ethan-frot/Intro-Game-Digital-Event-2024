@@ -82,6 +82,10 @@ function closeHand(prediction) {
     if (checkCollision(btn.getBoundingClientRect())) {
       cursor.style.backgroundImage = "url('/images/closed-cursor.png')";
       oxygenMin.src = "../images/step-4-oxygen-max.png";
+      console.log("User have done the task");
+      setTimeout(() => {
+        window.location.href = "step5.html";
+      }, 2000);
     }
   } else {
     cursor.style.backgroundImage = "url('/images/open-cursor.png')";

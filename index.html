@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body class="game">
-    <img src="./images/face-target.png" alt="" class="face-target">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step 1</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="game">
+    <img src="./images/face-target.png" alt="" class="face-target" />
     <div class="user-interface">
-        <div class="ecrous">
-            <img src="./images/ecrous.png" alt="" class="ecrou">
-            <img src="./images/ecrous.png" alt="" class="ecrou">
-            <img src="./images/ecrous.png" alt="" class="ecrou">
-            <img src="./images/ecrous.png" alt="" class="ecrou">
-        </div>
+      <div class="ecrous">
+        <img src="./images/ecrous.png" alt="" class="ecrou" />
+        <img src="./images/ecrous.png" alt="" class="ecrou" />
+        <img src="./images/ecrous.png" alt="" class="ecrou" />
+        <img src="./images/ecrous.png" alt="" class="ecrou" />
+      </div>
     </div>
     <div class="camera-container">
-        <div class="scan-bar"></div>
-        <img src="./images/ui-data-1.png" alt="" class="ui-data-1">
-        <div class="rec-container">
-            <div class="rec-icon">
-                <span></span>
-            </div>
-            <span class="rec-txt">REC</span>
+      <div class="scan-bar"></div>
+      <img src="./images/ui-data-1.png" alt="" class="ui-data-1" />
+      <div class="rec-container">
+        <div class="rec-icon">
+          <span></span>
         </div>
-          <div class="video">
-            <div class="canvas-container" id="canvasContainer"></div>
-            <!-- <video id="video" autoplay muted width="1440px" height="1120px"></video> -->
-            <video id="video" autoplay muted width="1540px" height="1120px"></video>
-          </div>
+        <span class="rec-txt">REC</span>
+      </div>
+      <div class="video">
+        <div class="canvas-container" id="canvasContainer"></div>
+        <!-- <video id="video" autoplay muted width="1440px" height="1120px"></video> -->
+        <video id="video" autoplay muted width="1540px" height="1120px"></video>
+      </div>
     </div>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"
+    ></script>
     <script defer src="../scripts/step1.js"></script>
-</body>
+  </body>
 </html>

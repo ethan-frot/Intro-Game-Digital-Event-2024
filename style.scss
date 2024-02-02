@@ -58,7 +58,7 @@ body {
 //**************************//
 
 .game {
-  background-image: url(images/background.png);
+  background-image: url(images/step-1-background.png);
   background-size: cover;
   background-position: center;
 }
@@ -266,4 +266,21 @@ canvas {
   z-index: 10000;
   background: center / contain no-repeat;
   background-image: url("/images/open-cursor.png");
+}
+
+//**************************//
+//         STEP 6           //
+//**************************//
+
+.step-6-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.step-6-neutral-ia {
+  position: absolute;
+  top: 150px;
+  width: 700px;
+  height: 500px;
 }

@@ -84,7 +84,7 @@ function closeHand(prediction) {
       oxygenMin.src = "../images/step-4-oxygen-max.png";
       console.log("User have done the task");
       setTimeout(() => {
-        window.location.href = "step5.html";
+        window.location.href = "step6.html";
       }, 2000);
     }
   } else {

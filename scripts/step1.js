@@ -17,7 +17,7 @@ let faceDetectActive = true;
 let intervalState = null;
 let faceScanerActive = false;
 
-const MODEL_PATH = "./assets/face-api/models";
+const MODEL_PATH = "../assets/face-api/models";
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_PATH),
@@ -72,9 +72,7 @@ function handlePlay() {
       const highestValueKey = Object.keys(expressions).reduce((a, b) =>
         expressions[a] > expressions[b] ? a : b
       );
-  
-      console.log("highestValueKey : ", highestValueKey);
-  
+    
       if (highestValueKey === "happy" && faceScanerActive === false) {
         console.log("happy");
         startUserScan();
@@ -148,6 +146,6 @@ function startDescriptionBeforeRedirect(){
 
   // redirect to step2.html
   setTimeout(function () {
-    window.location.href = "step2.html";
+    window.location.href = "../html/step2.html";
   }, 15000)
 }

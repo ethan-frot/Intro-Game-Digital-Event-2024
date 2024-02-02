@@ -150,8 +150,17 @@ function startDescriptionBeforeRedirect() {
   window.speechSynthesis.speak(msg);
   faceScanerActive = true;
 
-  // redirect to step2.html
   setTimeout(function () {
-    window.location.href = "../html/step2.html";
+    redirectToNextPage();
   }, 15000);
 }
+
+function redirectToNextPage() {
+  window.location.href = "../html/step2.html";
+}
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowDown") {
+    redirectToNextPage();
+  }
+});

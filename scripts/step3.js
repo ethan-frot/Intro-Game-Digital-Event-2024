@@ -8,7 +8,17 @@ setTimeout(() => {
   ia.style.display = "flex";
   iaNeutral.style.display = "flex";
 
-  setTimeout(() => {
-    window.location.href = "step4.html";
+  setTimeout(function () {
+    redirectToNextPage();
   }, 3000);
 }, 3000);
+
+function redirectToNextPage() {
+  window.location.href = "step4.html";
+}
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowDown") {
+    redirectToNextPage();
+  }
+});

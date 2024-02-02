@@ -1,4 +1,14 @@
 console.log("Wait for the swtich...");
-setTimeout(() => {
+setTimeout(function () {
+  redirectToNextPage();
+}, 5000);
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowDown") {
+    redirectToNextPage();
+  }
+});
+
+function redirectToNextPage() {
   window.location.href = "step7.html";
-}, 3000);
+}

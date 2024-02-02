@@ -96,3 +96,13 @@ function closeHand(prediction) {
     cursor.style.backgroundImage = "url('/images/open-cursor.png')";
   }
 }
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowDown") {
+    redirectToNextPage();
+  }
+});
+
+function redirectToNextPage() {
+  window.location.href = "step8.html";
+}

@@ -8,8 +8,18 @@ function startBlinking() {
   setTimeout(function () {
     clearInterval(blinkingInterval);
     text.style.opacity = "1";
-    window.location.href = "../index.html";
+    redirectToNextPage();
   }, 15000);
 }
 
 startBlinking();
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowDown") {
+    redirectToNextPage();
+  }
+});
+
+function redirectToNextPage() {
+  window.location.href = "../index.html";
+}

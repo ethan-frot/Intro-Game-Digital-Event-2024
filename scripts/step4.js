@@ -83,11 +83,21 @@ function closeHand(prediction) {
       cursor.style.backgroundImage = "url('/images/closed-cursor.png')";
       oxygenMin.src = "../images/step-4-oxygen-max.png";
       console.log("User have done the task");
-      setTimeout(() => {
-        window.location.href = "step6.html";
+      setTimeout(function () {
+        redirectToNextPage();
       }, 2000);
     }
   } else {
     cursor.style.backgroundImage = "url('/images/open-cursor.png')";
   }
 }
+
+function redirectToNextPage() {
+  window.location.href = "step6.html";
+}
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowDown") {
+    redirectToNextPage();
+  }
+});

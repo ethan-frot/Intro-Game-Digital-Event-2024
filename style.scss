@@ -223,3 +223,59 @@ canvas {
   bottom: 50px;
 }
 
+//**************************//
+//         STEP 5           //
+//**************************//
+
+.step5_title,
+.step5_motor_image,
+.sliders,
+.step5_subtitle,
+.step5_remaining_time {
+  position: absolute;
+  z-index: 1;
+}
+
+.step5_title {
+  top: 50px;
+}
+.step5_motor_image {
+  left: 240px;
+}
+.step5_subtitle {
+  bottom: 50px;
+}
+.step5_remaining_time {
+  bottom: 60px;
+  right: 250px;
+}
+.step5_range {
+  appearance: slider-vertical;
+  height: 500px;
+}
+.step5_canvasbox {
+  opacity: 0;
+  position: absolute;
+  z-index: 501;
+}
+.step5_videobox {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  z-index: 501;
+}
+.sliders {
+  display: flex;
+  gap: 64px;
+}
+
+#cursor {
+  position: fixed;
+  z-index: 500;
+  bottom: -100px;
+  width: 100px;
+  height: 100px;
+  background-color: #0095ff32;
+  border: 1px solid #0095ff;
+  border-radius: 10%;
+}

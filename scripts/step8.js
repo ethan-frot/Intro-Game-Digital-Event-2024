@@ -8,7 +8,7 @@ function startBlinking() {
   setTimeout(function () {
     clearInterval(blinkingInterval);
     text.style.opacity = "1";
-    // window.location.href = "index.html";
+    window.location.href = "../index.html";
   }, 15000);
 }
 

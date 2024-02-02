@@ -1,5 +1,10 @@
 * {
   box-sizing: border-box;
+
+}
+:root {
+    --primary-text-color: #A6FDBC;
+    --color-container-background: rgba(5, 15, 0, 0.70);
 }
 body {
   margin: 0;
@@ -8,6 +13,50 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+//**************************//
+//         STEP 1           //
+//**************************//
+
+.camera-container{ 
+    position: relative;
+    background-color: white;
+    width: 80%;
+    height: 90%;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.step1-title-container {
+    position: absolute;
+    z-index: 1;
+    top: 110px;
+}
+
+.pseudo-field-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    bottom: 70px;
+    padding: 0 16px 0 16px;
+    max-height: 120px;
+    min-width: 410px;
+    border-radius: 30px;
+    background-color: var(--color-container-background);
+    .step1-pseudo-field {
+        text-align: center;
+        font-size: 69px;
+        font-weight: 700;
+        letter-spacing: 11px;
+        color: var(--primary-text-color);
+    }
+}
+
+//**************************//
+//         STEP 2           //
+//**************************//
 
 .game {
   background-image: url(images/background.png);
@@ -63,24 +112,6 @@ body {
   color: #b6c2c3;
   font-weight: 900;
 }
-.rec-icon {
-  height: 50px;
-  width: 50px;
-  background-image: url(images/bg-rec.png);
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  span {
-    background-color: red;
-    height: 30px;
-    width: 30px;
-    border-radius: 100%;
-    animation: recAnimation 1s infinite;
-  }
-}
 
 .camera-container {
   position: relative;
@@ -89,6 +120,24 @@ body {
   height: 90%;
   border-radius: 50px;
   overflow: hidden;
+}
+.rec-icon{
+    height: 50px;
+    width: 50px;
+    background-image: url(images/bg-rec.png);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span{
+        background-color: red;
+        height: 30px;
+        width: 30px;
+        border-radius: 100%;
+        animation: recAnimation 1s infinite;
+    }
 }
 
 canvas {
@@ -150,9 +199,9 @@ canvas {
   }
 }
 
-// ****************** //
-// ***** Step 3 *****//
-// **************** //
+//**************************//
+//         STEP 3           //
+//**************************//
 
 img {
   width: 100%;
@@ -176,3 +225,4 @@ img {
   position: absolute;
   bottom: 50px;
 }
+

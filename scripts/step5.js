@@ -1,10 +1,11 @@
 const video = document.querySelector("#step5_video");
 const canvas = document.querySelector("#step5_canvasbox");
 const context = canvas.getContext("2d");
-let trackButton = document.getElementById("trackbutton");
+let trackButton = document.querySelector("#trackbutton");
 const sliders = document.querySelectorAll('.step5_range');
-const cursor = document.querySelector("#cursor");
+const cursor = document.querySelector(".cursor");
 const sliderContainer = document.querySelectorAll(".slider-container");
+const inputDisabled = document.querySelector('#input-disabled');
 
 let model = null;
 let isOpen = false;

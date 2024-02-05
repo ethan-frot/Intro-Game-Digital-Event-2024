@@ -23,7 +23,6 @@ body {
 
 .camera-container {
   position: relative;
-  background-color: white;
   width: 80%;
   height: 90%;
   border-radius: 50px;
@@ -118,7 +117,6 @@ body {
 
 .camera-container {
   position: relative;
-  background-color: white;
   width: 80%;
   height: 90%;
   border-radius: 50px;
@@ -281,23 +279,14 @@ canvas {
 //         STEP 5           //
 //**************************//
 
-.step5_title,
-.step5_motor_image,
 .sliders,
-.step5_subtitle,
 .step5_remaining_time {
   position: absolute;
   z-index: 1;
 }
 
-.step5_title {
-  top: 50px;
-}
-.step5_motor_image {
-  left: 240px;
-}
-.step5_subtitle {
-  bottom: 50px;
+.step-5-game {
+  background-image: url(images/step-5-background.png);
 }
 .step5_remaining_time {
   bottom: 60px;

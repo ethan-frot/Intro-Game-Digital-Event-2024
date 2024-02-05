@@ -74,6 +74,12 @@ body {
 .step-2-game {
   background-image: url(images/step-2-background.png);
 }
+.confirm-yes,
+.confirm-no {
+  font-size: 30px;
+  width: 100px;
+  height: 50px;
+}
 .ui-image-1 {
   position: absolute;
   top: 50px;

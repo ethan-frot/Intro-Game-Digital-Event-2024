@@ -1,4 +1,5 @@
 const pseudoField = document.querySelector(".step2-pseudo-field");
+const confirmButtons = document.querySelectorAll('.confirm');
 
 setTimeout(() => {
   initGame();
@@ -15,24 +16,16 @@ function vocalQuestionAssistant(file) {
 }
 
 function vocalResponseRecordUser() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     var recognition = new webkitSpeechRecognition();
     recognition.lang = "fr-FR";
-    let response = "";
 
     recognition.onresult = function (event) {
       let responseEvent = event.results[0][0].transcript;
       responseEvent.toLowerCase();
-      response = responseEvent
-      resolve(response);
+      resolve(responseEvent);
     };
-    setTimeout(() => {
-      recognition.onspeechend = function (event) {
-        if(response === ""){
-          reject()
-        }
-      };
-    }, 1000);
+
     recognition.start();
   });
 }
@@ -42,25 +35,22 @@ async function initGame() {
   // demander pseudo
   await vocalQuestionAssistant("step2_identity.mp3");
   // écouter pseudo user
-  try {
-    const pseudoAsk = await vocalResponseRecordUser();
-    pseudoField.textContent = pseudoAsk;
-    // confirmation pseudo
-    await vocalQuestionAssistant("step2_confirmation.mp3");
-    // écouter confirmation
-    const confirmAsk = await vocalResponseRecordUser();
-    if (confirmAsk.includes("oui") || confirmAsk.includes("ouais") || confirmAsk.includes("ouaip")) {
-      const pseudo = pseudoAsk;
-      setTimeout(function () {
-        redirectToNextPage();
-      }, 1500);
-    } else {
-      initGame();
-    }
-  } catch (error) {
-    console.log("veuillez répondre !")
-    initGame();
-  }
+  const pseudoAsk = await vocalResponseRecordUser();
+  pseudoField.textContent = pseudoAsk;
+  //confirmation pseudo
+  await vocalQuestionAssistant("step2_confirmation.mp3");
+  confirmButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      if (button.id == 'oui') {
+        const pseudo = pseudoAsk;
+        setTimeout(function () {
+          redirectToNextPage();
+        }, 1000);
+      } else if (button.id == 'non') {
+        initGame();
+      }
+    });
+  });
 }
 
 function redirectToNextPage() {

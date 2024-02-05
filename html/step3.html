@@ -6,12 +6,16 @@
     <title>Step 3</title>
     <link rel="stylesheet" href="../style.css" />
   </head>
-  <body>
-    <img class="loading" src="../images/step-3-loading.png" />
+  <body class="step-3-background">
+    <video class="loading">
+      <source src="/assets/videos/step-3-loading.mp4" muted type="video/mp4" />
+      Votre navigateur ne prend pas en charge la balise vidéo.
+    </video>
 
-    <img class="ia" src="../images/step-3-ia.png" />
-    <img class="ia-neutral" src="../images/step-3-neutral-ia.png" />
-    <img class="ia-talking" src="../images/step-3-talking-ia.png" />
+    <video muted loop class="ia-talking">
+      <source src="/assets/videos/step-3-ia.mp4" type="video/mp4" />
+      Votre navigateur ne prend pas en charge la balise vidéo.
+    </video>
 
     <script src="../scripts/step3.js"></script>
   </body>

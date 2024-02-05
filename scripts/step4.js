@@ -92,7 +92,7 @@ function closeHand(prediction) {
 oxygen.addEventListener("ended", function () {
   setTimeout(function () {
     redirectToNextPage();
-  }, 2000);
+  }, 1000);
 });
 
 function redirectToNextPage() {

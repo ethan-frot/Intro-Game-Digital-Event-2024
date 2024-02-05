@@ -4,9 +4,18 @@ const context = canvas.getContext("2d");
 let trackButton = document.getElementById("trackbutton");
 const sliders = document.querySelectorAll('.step5_range');
 const cursor = document.querySelector("#cursor");
+const sliderContainer = document.querySelectorAll(".slider-container");
 
 let model = null;
 let isOpen = false;
+
+sliderContainer.forEach(slider => {
+  const step5Range = slider.querySelector('.step5_range');
+  const step5RangeControl = slider.querySelector('.step5_range_control');
+  step5RangeControl.addEventListener("input", (e) => {
+    step5Range.value = e.target.value;
+  });
+});
 
 const modelParams = {
   flipHorizontal: true, // flip e.g for video
@@ -24,7 +33,7 @@ function startVideo() {
   });
 }
 
-startVideo();
+// startVideo();
 
 function runDetection() {
   model.detect(video).then((predictions) => {

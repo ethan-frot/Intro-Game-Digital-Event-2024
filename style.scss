@@ -2,12 +2,12 @@
   box-sizing: border-box;
 }
 :root {
-    --primary-text-color: #A6FDBC;
-    --color-container-background: rgba(5, 15, 0, 0.70);
+  --primary-text-color: #a6fdbc;
+  --color-container-background: rgba(5, 15, 0, 0.7);
 
-    --slider-thumb-color: #FF8E48;
-    --slider-bar-color: #14FF00;
-    --slider-background-color: #FFFBF7;
+  --slider-thumb-color: #ff8e48;
+  --slider-bar-color: #14ff00;
+  --slider-background-color: #fffbf7;
 }
 body {
   margin: 0;
@@ -407,19 +407,21 @@ input[type="range"]:not(.vertical) {
   width: 200px;
 }
 
-
 //**************************//
 //         STEP 8           //
 //**************************//
 
 .step-8-background {
-  width: 100%;
-  height: 100%;
+  background-image: url(/images/step-8-background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .step-8-text {
-  position: absolute;
-  top: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 920px;
   height: 50px;
   opacity: 1;

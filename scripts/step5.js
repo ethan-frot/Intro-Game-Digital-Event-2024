@@ -2,17 +2,17 @@ const video = document.querySelector("#step5_video");
 const canvas = document.querySelector("#step5_canvasbox");
 const context = canvas.getContext("2d");
 let trackButton = document.querySelector("#trackbutton");
-const sliders = document.querySelectorAll('.step5_range');
+const sliders = document.querySelectorAll(".step5_range");
 const cursor = document.querySelector(".cursor");
 const sliderContainer = document.querySelectorAll(".slider-container");
-const inputDisabled = document.querySelector('#input-disabled');
+const inputDisabled = document.querySelector("#input-disabled");
 
 let model = null;
 let isOpen = false;
 
-sliderContainer.forEach(slider => {
-  const step5Range = slider.querySelector('.step5_range');
-  const step5RangeControl = slider.querySelector('.step5_range_control');
+sliderContainer.forEach((slider) => {
+  const step5Range = slider.querySelector(".step5_range");
+  const step5RangeControl = slider.querySelector(".step5_range_control");
   step5RangeControl.addEventListener("input", (e) => {
     step5Range.value = e.target.value;
   });
@@ -94,12 +94,15 @@ function checkCollision(block) {
     cursorRect.right > blockRect.left &&
     cursorRect.top < blockRect.bottom &&
     cursorRect.bottom > blockRect.top
-  ) {return block}
+  ) {
+    return block;
+  }
 }
 
 function activeButtons(prediction) {
-  sliders.forEach(slider => {
-    if (prediction.label === "closed" || prediction.label === "pinch") {
+  sliders.forEach((slider) => {
+    if (prediction.label === "closed") {
+      cursor.style.backgroundImage = "url('/images/closed-cursor.png')";
       if (checkCollision(slider)) {
         // récupérer les tailles du slider
         const slideSize = slider.getBoundingClientRect();
@@ -109,7 +112,9 @@ function activeButtons(prediction) {
         const sliderBottomDistance = totalDocHeight - sliderBottomRelativeToDoc;
         // hauteur du slider
         const sliderHeight = slideSize.height;
-        slider.value = ((sliderBottomDistance - prediction.bbox[1]) / (sliderHeight / 180)) * 0.9;
+        slider.value =
+          ((sliderBottomDistance - prediction.bbox[1]) / (sliderHeight / 100)) *
+          2.1;
       }
     }
   });

@@ -245,6 +245,18 @@ canvas {
   }
 }
 
+.blinking-text {
+  position: absolute;
+  bottom: 220px;
+  color: #2f6976;
+  font-family: "Bitsential";
+  font-weight: 900;
+  font-size: 55px;
+  letter-spacing: 0.6px;
+  opacity: 1;
+  animation: recAnimation 2s infinite 1s;
+}
+
 .canvasbox {
   display: flex;
   position: absolute;
@@ -299,15 +311,9 @@ canvas {
   position: absolute;
   z-index: 501;
 }
-#cursor {
-  position: fixed;
-  z-index: 500;
-  bottom: -100px;
-  width: 100px;
-  height: 100px;
-  background-color: #0095ff32;
-  border: 1px solid #0095ff;
-  border-radius: 10%;
+
+.step-5-text {
+  bottom: 150px;
 }
 .sliders {
   display: flex;
@@ -404,6 +410,10 @@ input[type="range"]:not(.vertical) {
 
 .step-7-btn {
   width: 200px;
+}
+
+.step-7-text {
+  bottom: 180px;
 }
 
 //**************************//

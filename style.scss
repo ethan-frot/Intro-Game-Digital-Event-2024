@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-
 }
 :root {
     --primary-text-color: #A6FDBC;
@@ -22,40 +21,40 @@ body {
 //         STEP 1           //
 //**************************//
 
-.camera-container{ 
-    position: relative;
-    background-color: white;
-    width: 80%;
-    height: 90%;
-    border-radius: 50px;
-    overflow: hidden;
+.camera-container {
+  position: relative;
+  background-color: white;
+  width: 80%;
+  height: 90%;
+  border-radius: 50px;
+  overflow: hidden;
 }
 
 .step2-title-container {
-    position: absolute;
-    z-index: 1;
-    top: 110px;
+  position: absolute;
+  z-index: 1;
+  top: 110px;
 }
 
 .pseudo-field-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 1;
-    bottom: 70px;
-    padding: 0 16px 0 16px;
-    max-height: 120px;
-    min-width: 410px;
-    border-radius: 30px;
-    background-color: var(--color-container-background);
-    .step2-pseudo-field {
-        text-align: center;
-        font-size: 69px;
-        font-weight: 700;
-        letter-spacing: 11px;
-        color: var(--primary-text-color);
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  bottom: 70px;
+  padding: 0 16px 0 16px;
+  max-height: 120px;
+  min-width: 410px;
+  border-radius: 30px;
+  background-color: var(--color-container-background);
+  .step2-pseudo-field {
+    text-align: center;
+    font-size: 69px;
+    font-weight: 700;
+    letter-spacing: 11px;
+    color: var(--primary-text-color);
+  }
 }
 
 //**************************//
@@ -63,12 +62,12 @@ body {
 //**************************//
 
 .game {
-  background-image: url(images/background.png);
+  background-image: url(images/step-1-background.png);
   background-size: cover;
   background-position: center;
 }
 
-.ui-data-1 {
+.ui-image-1 {
   position: absolute;
   top: 50px;
   right: 50px;
@@ -125,23 +124,23 @@ body {
   border-radius: 50px;
   overflow: hidden;
 }
-.rec-icon{
-    height: 50px;
-    width: 50px;
-    background-image: url(images/bg-rec.png);
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.rec-icon {
+  height: 50px;
+  width: 50px;
+  background-image: url(images/bg-rec.png);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    span{
-        background-color: red;
-        height: 30px;
-        width: 30px;
-        border-radius: 100%;
-        animation: recAnimation 1s infinite;
-    }
+  span {
+    background-color: red;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    animation: recAnimation 1s infinite;
+  }
 }
 
 canvas {
@@ -207,6 +206,11 @@ canvas {
 //         STEP 3           //
 //**************************//
 
+.loading {
+  width: 100%;
+  height: 100%;
+}
+
 .ia {
   position: relative;
 }
@@ -224,7 +228,53 @@ canvas {
   width: 60%;
   height: 60%;
   position: absolute;
-  bottom: 50px;
+  top: 150px;
+}
+
+//**************************//
+//         STEP 4           //
+//**************************//
+
+.step-4-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.oxygen-min {
+  width: 125px;
+  position: absolute;
+  left: 125px;
+}
+
+.btn {
+  all: unset;
+  position: absolute;
+
+  img {
+    width: 150px;
+  }
+}
+
+.canvasbox {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.videobox {
+  display: none;
+}
+
+.cursor {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  z-index: 10000;
+  background: center / contain no-repeat;
+  background-image: url("/images/open-cursor.png");
 }
 
 //**************************//
@@ -329,4 +379,60 @@ input[type="range"]:not(.vertical) {
 #range-3 {
   pointer-events: none;
   touch-action: none;
+}
+
+//**************************//
+//         STEP 6           //
+//**************************//
+
+.step-6-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.step-6-neutral-ia {
+  position: absolute;
+  top: 150px;
+  width: 700px;
+  height: 500px;
+}
+
+//**************************//
+//         STEP 7           //
+//**************************//
+
+.step-7-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.step-7-btn-container {
+  position: absolute;
+  display: flex;
+  gap: 50px;
+}
+
+.step-7-btn {
+  width: 200px;
+}
+
+
+//**************************//
+//         STEP 8           //
+//**************************//
+
+.step-8-background {
+  width: 100%;
+  height: 100%;
+}
+
+.step-8-text {
+  position: absolute;
+  top: 420px;
+  width: 920px;
+  height: 50px;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }

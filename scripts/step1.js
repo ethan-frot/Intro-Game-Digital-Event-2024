@@ -68,11 +68,11 @@ function handlePlay() {
 
     const expressions = detections[0]?.expressions;
 
-    if(expressions){
+    if (expressions) {
       const highestValueKey = Object.keys(expressions).reduce((a, b) =>
         expressions[a] > expressions[b] ? a : b
       );
-    
+
       if (highestValueKey === "happy" && faceScanerActive === false) {
         startUserScan();
       }
@@ -92,7 +92,10 @@ function handlePlay() {
             ? ageHistory.reduce((sum, age) => sum + age, 0) / ageHistory.length
             : currentAge;
 
-        descriptionUser = { age: Math.floor(averageAge), gender: currentGender };
+        descriptionUser = {
+          age: Math.floor(averageAge),
+          gender: currentGender,
+        };
 
         ageHistory = [];
         currentWindowStartTime = currentTime;
@@ -105,8 +108,8 @@ function handlePlay() {
       faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
     } else {
       descriptionUser = {
-        age: "Attente de détection...",
-        gender: "Attente de détection...",
+        age: "18",
+        gender: "homme",
       };
       ageHistory = [];
       currentWindowStartTime = new Date().getTime();
@@ -125,26 +128,39 @@ function startUserScan() {
   window.speechSynthesis.speak(msg);
   faceScanerActive = true;
 
-  const scanBar = document.querySelector('.scan-bar');
-  scanBar.classList.add('active'); 
+  const scanBar = document.querySelector(".scan-bar");
+  scanBar.classList.add("active");
 
   setTimeout(function () {
-    startDescriptionBeforeRedirect()
-  }, 5000)
+    startDescriptionBeforeRedirect();
+  }, 5000);
 }
 
-function startDescriptionBeforeRedirect(){
+function startDescriptionBeforeRedirect() {
   var msg = new SpeechSynthesisUtterance();
   const { age, gender } = descriptionUser;
   console.log("age : ", age);
-  
-  msg.text = `Bonjour ${gender === "male" ? "commandant" : "commandante"}, nous sommes en l'an 3450, votre age rééle est de ${age + 1426 } ans, votre age crystalique est de ${age} ans. Nous allons pouvoir commencer`;
+
+  msg.text = `Bonjour ${
+    gender === "male" ? "commandant" : "commandante"
+  }, nous sommes en l'an 3450, votre age rééle est de ${
+    age + 1426
+  } ans, votre age crystalique est de ${age} ans. Nous allons pouvoir commencer`;
   msg.lang = "fr-FR";
   window.speechSynthesis.speak(msg);
   faceScanerActive = true;
 
-  // redirect to step2.html
   setTimeout(function () {
-    window.location.href = "../html/step2.html";
-  }, 15000)
+    redirectToNextPage();
+  }, 15000);
 }
+
+function redirectToNextPage() {
+  window.location.href = "../html/step2.html";
+}
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowDown") {
+    redirectToNextPage();
+  }
+});

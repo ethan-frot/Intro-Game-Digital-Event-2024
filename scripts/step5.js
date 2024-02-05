@@ -1,11 +1,15 @@
 const video = document.querySelector("#step5_video");
 const canvas = document.querySelector("#step5_canvasbox");
 const context = canvas.getContext("2d");
-let trackButton = document.querySelector("#trackbutton");
 const sliders = document.querySelectorAll(".step5_range");
 const cursor = document.querySelector(".cursor");
 const sliderContainer = document.querySelectorAll(".slider-container");
 const inputDisabled = document.querySelector("#input-disabled");
+const timer = document.querySelector(".timer");
+const timerInterval = setInterval(updateTimer, 1000);
+let trackButton = document.querySelector("#trackbutton");
+
+let time = 30;
 
 let model = null;
 let isOpen = false;
@@ -19,10 +23,10 @@ sliderContainer.forEach((slider) => {
 });
 
 const modelParams = {
-  flipHorizontal: true, // flip e.g for video
-  maxNumBoxes: 20, // maximum number of boxes to detect
-  iouThreshold: 0.5, // ioU threshold for non-max suppression
-  scoreThreshold: 0.6, // confidence threshold for predictions.
+  flipHorizontal: true,
+  maxNumBoxes: 20,
+  iouThreshold: 0.5,
+  scoreThreshold: 0.6,
 };
 
 function startVideo() {
@@ -38,18 +42,11 @@ startVideo();
 
 function runDetection() {
   model.detect(video).then((predictions) => {
-    // console.log("Predictions: ", predictions);
     model.renderPredictions(predictions, canvas, context, video);
 
     predictions.forEach((prediction) => {
       if (prediction.label !== "face") {
-        // Assurez-vous que la classe 'hand' est correcte
-        // console.log(prediction);
         const [x, y, width, height] = prediction.bbox;
-        // console.log(
-        //   `Main détectée à x: ${x}, y: ${y}, largeur: ${width}, hauteur: ${height}`
-        // );
-
         moveCursor(prediction.bbox, cursor);
         activeButtons(prediction);
       }
@@ -82,7 +79,6 @@ function moveCursor(handBbox, cursor) {
 
 // Load the model.
 handTrack.load(modelParams).then((lmodel) => {
-  // detect objects in the image.
   model = lmodel;
 });
 
@@ -104,13 +100,15 @@ function activeButtons(prediction) {
     if (prediction.label === "closed") {
       cursor.style.backgroundImage = "url('/images/closed-cursor.png')";
       if (checkCollision(slider)) {
-        // récupérer les tailles du slider
+        // Récupérer les tailles du slider
         const slideSize = slider.getBoundingClientRect();
-        // récupérer l'espacement entre le bas du slider et le bas de la page
+
+        // Récupérer l'espacement entre le bas du slider et le bas de la page
         const sliderBottomRelativeToDoc = window.scrollY + slideSize.bottom;
         const totalDocHeight = document.documentElement.scrollHeight;
         const sliderBottomDistance = totalDocHeight - sliderBottomRelativeToDoc;
-        // hauteur du slider
+
+        // Hauteur du slider
         const sliderHeight = slideSize.height;
         slider.value =
           ((sliderBottomDistance - prediction.bbox[1]) / (sliderHeight / 100)) *
@@ -118,6 +116,17 @@ function activeButtons(prediction) {
       }
     }
   });
+}
+
+function updateTimer() {
+  timer.innerText = time;
+
+  if (time === 0) {
+    clearInterval(timerInterval);
+    redirectToNextPage();
+  } else {
+    time--;
+  }
 }
 
 function redirectToNextPage() {

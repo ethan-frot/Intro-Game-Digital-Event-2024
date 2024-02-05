@@ -1,33 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>step 5</title>
-    <link rel="stylesheet" href="../style.css">
-</head>
-<body class="game step-5-game">
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body class="game step-5-game">
     <div class="sliders">
       <div class="slider-container">
         <input class="step5_range" type="range" min="0" value="35" max="100" />
-        <input id="input-disabled" style="opacity: 0;" type="range" class="vertical step5_range_control" min="0" max="100"/>
+        <input
+          id="input-disabled"
+          style="opacity: 0"
+          type="range"
+          class="vertical step5_range_control"
+          min="0"
+          max="100"
+        />
       </div>
       <div class="slider-container">
         <input class="step5_range" type="range" min="0" value="65" max="100" />
-        <input style="opacity: 0;" type="range" class="vertical step5_range_control" min="0" max="100"/>
+        <input
+          style="opacity: 0"
+          type="range"
+          class="vertical step5_range_control"
+          min="0"
+          max="100"
+        />
       </div>
       <div class="slider-container">
         <input class="step5_range" type="range" min="0" value="90" max="100" />
-        <input style="opacity: 0;" type="range" class="vertical step5_range_control" min="0" max="100"/>
+        <input
+          style="opacity: 0"
+          type="range"
+          class="vertical step5_range_control"
+          min="0"
+          max="100"
+        />
       </div>
     </div>
-    <!-- <p class="step5_remaining_time">10:00</p> -->
+    <h1 class="timer">30</h1>
+    <h1 class="step-5-text blinking-text">Attrape le slider</h1>
     <div class="camera-container">
-        <div class="camDiv">
-          <canvas id="step5_canvasbox" class="border step5_canvasbox"></canvas>
-          <video class="step5_videobox" autoplay="autoplay" id="step5_video"></video>
-        </div>
-        <div class="cursor"></div>
+      <div class="camDiv">
+        <canvas id="step5_canvasbox" class="border step5_canvasbox"></canvas>
+        <video
+          class="step5_videobox"
+          autoplay="autoplay"
+          id="step5_video"
+        ></video>
+      </div>
+      <div class="cursor"></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"></script>
     <script defer type="module" src="../scripts/step5.js"></script>

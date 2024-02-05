@@ -33,7 +33,7 @@ function startVideo() {
   });
 }
 
-// startVideo();
+startVideo();
 
 function runDetection() {
   model.detect(video).then((predictions) => {

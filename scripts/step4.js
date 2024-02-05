@@ -3,7 +3,7 @@ const canvas = document.querySelector("#canvas");
 const context = canvas.getContext("2d");
 const btn = document.querySelector(".btn");
 const cursor = document.querySelector(".cursor");
-const oxygenMin = document.querySelector(".oxygen-min");
+const oxygen = document.querySelector(".oxygen");
 
 let isVideo = false;
 let model = null;
@@ -81,16 +81,19 @@ function closeHand(prediction) {
   if (prediction.label === "closed") {
     if (checkCollision(btn.getBoundingClientRect())) {
       cursor.style.backgroundImage = "url('/images/closed-cursor.png')";
-      oxygenMin.src = "../images/step-4-oxygen-max.png";
-      console.log("User have done the task");
-      setTimeout(function () {
-        redirectToNextPage();
-      }, 2000);
+      oxygen.play();
     }
   } else {
     cursor.style.backgroundImage = "url('/images/open-cursor.png')";
+    oxygen.pause();
   }
 }
+
+oxygen.addEventListener("ended", function () {
+  setTimeout(function () {
+    redirectToNextPage();
+  }, 1000);
+});
 
 function redirectToNextPage() {
   window.location.href = "step5.html";

@@ -7,12 +7,12 @@
 }
 $font-futurama: 'futurame-bold', sans-serif;
 :root {
-    --primary-text-color: #A6FDBC;
-    --color-container-background: rgba(5, 15, 0, 0.70);
+  --primary-text-color: #a6fdbc;
+  --color-container-background: rgba(5, 15, 0, 0.7);
 
-    --slider-thumb-color: #FF8E48;
-    --slider-bar-color: #14FF00;
-    --slider-background-color: #FFFBF7;
+  --slider-thumb-color: #ff8e48;
+  --slider-bar-color: #14ff00;
+  --slider-background-color: #fffbf7;
 }
 body {
   margin: 0;
@@ -186,29 +186,17 @@ canvas {
 //         STEP 3           //
 //**************************//
 
-.loading {
-  width: 100%;
-  height: 100%;
+.step-3-background {
+  background: center / contain no-repeat;
+  background-image: url("/images/step-3-background.png");
 }
 
 .ia {
   position: relative;
 }
 
-.ia,
-.ia-neutral,
 .ia-talking {
   display: none;
-  width: 100%;
-  height: 100%;
-}
-
-.ia-neutral,
-.ia-talking {
-  width: 60%;
-  height: 60%;
-  position: absolute;
-  top: 150px;
 }
 
 //**************************//
@@ -216,15 +204,13 @@ canvas {
 //**************************//
 
 .step-4-background {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  background: center / contain no-repeat;
+  background-image: url("/images/step-4-background.png");
 }
 
-.oxygen-min {
-  width: 125px;
-  position: absolute;
-  left: 125px;
+.oxygen {
+  width: 300px;
+  margin-right: 1200px;
 }
 
 .btn {
@@ -250,6 +236,8 @@ canvas {
 
 .cursor {
   position: fixed;
+
+  right: 200px;
   width: 100px;
   height: 100px;
   z-index: 10000;
@@ -357,14 +345,16 @@ input[type="range"]:not(.vertical) {
 //**************************//
 
 .step-6-background {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  background-image: url(/images/step-6-background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .step-6-neutral-ia {
-  position: absolute;
-  top: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 700px;
   height: 500px;
 }
@@ -374,9 +364,10 @@ input[type="range"]:not(.vertical) {
 //**************************//
 
 .step-7-background {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  background-image: url(/images/step-7-background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .step-7-btn-container {
@@ -389,19 +380,21 @@ input[type="range"]:not(.vertical) {
   width: 200px;
 }
 
-
 //**************************//
 //         STEP 8           //
 //**************************//
 
 .step-8-background {
-  width: 100%;
-  height: 100%;
+  background-image: url(/images/step-8-background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .step-8-text {
-  position: absolute;
-  top: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 920px;
   height: 50px;
   opacity: 1;

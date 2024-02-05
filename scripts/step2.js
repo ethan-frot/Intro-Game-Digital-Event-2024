@@ -1,8 +1,8 @@
 const pseudoField = document.querySelector(".step2-pseudo-field");
 
-document.addEventListener("click", function () {
-  initGame();
-});
+// setTimeout(() => {
+//   initGame();
+// }, 1000);
 
 function vocalQuestionAssistant(file) {
   return new Promise((resolve) => {

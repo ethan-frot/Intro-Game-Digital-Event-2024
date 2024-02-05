@@ -113,3 +113,13 @@ function activeButtons(prediction) {
     }
   });
 }
+
+function redirectToNextPage() {
+  window.location.href = "step6.html";
+}
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowDown") {
+    redirectToNextPage();
+  }
+});

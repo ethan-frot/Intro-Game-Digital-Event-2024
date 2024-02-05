@@ -93,7 +93,7 @@ function closeHand(prediction) {
 }
 
 function redirectToNextPage() {
-  window.location.href = "step6.html";
+  window.location.href = "step5.html";
 }
 
 window.addEventListener("keydown", function (event) {

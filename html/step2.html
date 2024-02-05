@@ -14,8 +14,10 @@
     <div class="pseudo-field-container">
       <p class="step2-pseudo-field">_______</p>
     </div>
-    <button class="confirm" id="oui">Oui</button>
-    <button class="confirm" id="non">Non</button>
+    <div class="buttons hidden">
+      <button class="confirm" id="oui">Oui</button>
+      <button class="confirm" id="non">Non</button>
+    </div>
     <div class="camera-container">
       <div class="scan-bar"></div>
       <img src="../images/ui-image-1.png" alt="" class="ui-image-1" />
@@ -26,11 +28,11 @@
         <span class="rec-txt">REC</span>
       </div>
       <div class="video">
-        <div class="canvas-container" id="canvasContainer"></div>
-        <!-- <video id="video" autoplay muted width="1440px" height="1120px"></video> -->
-        <video id="video" autoplay muted width="1540px" height="1120px"></video>
+        <canvas id="step-2-canvas"></canvas>
+        <video id="step-2-video" autoplay="autoplay"></video>
       </div>
     </div>
+    <div class="cursor"></div>
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"

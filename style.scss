@@ -70,7 +70,9 @@ body {
 //**************************//
 //         STEP 2           //
 //**************************//
-
+.hidden {
+  display: none;
+}
 .game {
   background-image: url(images/step-1-background.png);
   background-size: cover;
@@ -79,8 +81,7 @@ body {
 .step-2-game {
   background-image: url(images/step-2-background.png);
 }
-.confirm-yes,
-.confirm-no {
+.confirm {
   font-size: 30px;
   width: 100px;
   height: 50px;

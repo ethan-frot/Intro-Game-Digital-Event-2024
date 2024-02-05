@@ -7,6 +7,10 @@ const context = canvas.getContext("2d");
 const btn = document.querySelector(".btn");
 const cursor = document.querySelector(".cursor");
 
+const buttonYes = document.querySelector('#oui');
+const buttonNon = document.querySelector('#non');
+const buttonsDiv = document.querySelector('.buttons');
+
 let isVideo = false;
 let model = null;
 
@@ -55,14 +59,16 @@ async function initGame() {
   pseudoField.textContent = pseudoAsk;
   //confirmation pseudo
   await vocalQuestionAssistant("step2_confirmation.mp3");
+  buttonsDiv.classList.remove('hidden');
   confirmButtons.forEach(button => {
     button.addEventListener("click", () => {
       if (button.id == 'oui') {
-        const pseudo = pseudoAsk;
+        buttonsDiv.classList.add('hidden');
         setTimeout(function () {
           redirectToNextPage();
         }, 1000);
       } else if (button.id == 'non') {
+        buttonsDiv.classList.add('hidden');
         initGame();
       }
     });
@@ -85,7 +91,7 @@ function runDetection() {
       if (prediction.label !== "face") {
         const [x, y, width, height] = prediction.bbox;
         moveCursor(prediction.bbox, cursor);
-        // closeHand(prediction);
+        closeHand(prediction);
       }
     });
     requestAnimationFrame(runDetection);
@@ -131,15 +137,25 @@ function checkCollision(block) {
   }
 }
 
-// function closeHand(prediction) {
-//   if (prediction.label === "closed") {
-//     if (checkCollision(btn.getBoundingClientRect())) {
-//       cursor.style.backgroundImage = "url('/images/closed-cursor.png')";
-//     }
-//   } else {
-//     cursor.style.backgroundImage = "url('/images/open-cursor.png')";
-//   }
-// }
+function closeHand(prediction) {
+  if (prediction.label === "closed") {
+    if (checkCollision(buttonYes.getBoundingClientRect())) {
+      buttonsDiv.classList.add('hidden');
+      setTimeout(() => {
+        cursor.style.backgroundImage = "url('/images/closed-cursor.png')";
+        buttonYes.click()
+      }, 200);
+    } else if (checkCollision(buttonNon.getBoundingClientRect())) {
+      buttonsDiv.classList.add('hidden');
+      setTimeout(() => {
+        cursor.style.backgroundImage = "url('/images/closed-cursor.png')";
+        buttonNon.click()
+      }, 200);
+    }
+  } else {
+    cursor.style.backgroundImage = "url('/images/open-cursor.png')";
+  }
+}
 
 function redirectToNextPage() {
   window.location.href = "../html/step3.html";

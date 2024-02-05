@@ -204,29 +204,17 @@ canvas {
 //         STEP 3           //
 //**************************//
 
-.loading {
-  width: 100%;
-  height: 100%;
+.step-3-background {
+  background: center / contain no-repeat;
+  background-image: url("/images/step-3-background.png");
 }
 
 .ia {
   position: relative;
 }
 
-.ia,
-.ia-neutral,
 .ia-talking {
   display: none;
-  width: 100%;
-  height: 100%;
-}
-
-.ia-neutral,
-.ia-talking {
-  width: 60%;
-  height: 60%;
-  position: absolute;
-  top: 150px;
 }
 
 //**************************//
@@ -239,6 +227,7 @@ canvas {
 }
 
 .oxygen {
+  width: 300px;
   margin-right: 1200px;
 }
 
@@ -265,6 +254,8 @@ canvas {
 
 .cursor {
   position: fixed;
+
+  right: 200px;
   width: 100px;
   height: 100px;
   z-index: 10000;

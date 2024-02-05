@@ -2,8 +2,12 @@
   box-sizing: border-box;
 }
 :root {
-  --primary-text-color: #a6fdbc;
-  --color-container-background: rgba(5, 15, 0, 0.7);
+    --primary-text-color: #A6FDBC;
+    --color-container-background: rgba(5, 15, 0, 0.70);
+
+    --slider-thumb-color: #FF8E48;
+    --slider-bar-color: #14FF00;
+    --slider-background-color: #FFFBF7;
 }
 body {
   margin: 0;
@@ -274,6 +278,110 @@ canvas {
 }
 
 //**************************//
+//         STEP 5           //
+//**************************//
+
+.step5_title,
+.step5_motor_image,
+.sliders,
+.step5_subtitle,
+.step5_remaining_time {
+  position: absolute;
+  z-index: 1;
+}
+
+.step5_title {
+  top: 50px;
+}
+.step5_motor_image {
+  left: 240px;
+}
+.step5_subtitle {
+  bottom: 50px;
+}
+.step5_remaining_time {
+  bottom: 60px;
+  right: 250px;
+}
+.step5_canvasbox {
+  opacity: 0;
+  position: absolute;
+  z-index: 501;
+}
+.step5_videobox {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  z-index: 501;
+}
+#cursor {
+  position: fixed;
+  z-index: 500;
+  bottom: -100px;
+  width: 100px;
+  height: 100px;
+  background-color: #0095ff32;
+  border: 1px solid #0095ff;
+  border-radius: 10%;
+}
+.sliders {
+  display: flex;
+  gap: 64px;
+}
+.slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="range"].vertical {
+  appearance: slider-vertical;
+  -webkit-appearance: slider-vertical;
+  writing-mode: bt-lr;
+  position: relative;
+  height: 448px;
+  grid: 1/1/1/1;
+}
+
+input[type="range"]:not(.vertical)::-webkit-slider-runnable-track {
+  position: relative;
+  height: 8px;
+  border-radius: 8px;
+}
+
+input[type="range"]:not(.vertical)::-webkit-slider-thumb {
+  box-sizing: border-box;
+  appearance: none;
+  position: relative;
+  background-color: var(--slider-thumb-color);
+  border-radius: 64px;
+  width: 46px;
+  height: 139px;
+  top: 50%;
+  translate: 0 -50%;
+}
+
+input[type="range"]:not(.vertical) {
+  appearance: none;
+  background-color: transparent;
+  rotate: -90deg;
+  grid: 1/1/1/1;
+  width: 448px;
+  height: 60px;
+  border-radius: 41px;
+  border: 7px var(--slider-thumb-color) solid;
+  background-color: var(--slider-background-color);
+  position: absolute;
+}
+
+#range-2,
+#range-3 {
+  pointer-events: none;
+  touch-action: none;
+}
+
+//**************************//
 //         STEP 6           //
 //**************************//
 
@@ -309,6 +417,7 @@ canvas {
 .step-7-btn {
   width: 200px;
 }
+
 
 //**************************//
 //         STEP 8           //

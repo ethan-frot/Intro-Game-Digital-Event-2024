@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="game">
+    <h1 class="step5_title">Refroidit les moteurs</h1>
+    <img src="../images/step5_motor.png" alt="motor" class="step5_motor_image">
+    <div class="sliders">
+      <div class="slider-container">
+        <input id="range-2" class="step5_range" type="range" min="0" value="35" max="100" />
+        <input id="range-2-control" style="opacity: 0;" type="range" class="vertical step5_range_control" min="0" max="100"/>
+      </div>
+      <div class="slider-container">
+        <input id="range-2" class="step5_range" type="range" min="0" value="65" max="100" />
+        <input id="range-2-control" style="opacity: 0;" type="range" class="vertical step5_range_control" min="0" max="100"/>
+      </div>
+      <div class="slider-container">
+        <input id="range-2" class="step5_range" type="range" min="0" value="90" max="100" />
+        <input id="range-2-control" style="opacity: 0;" type="range" class="vertical step5_range_control" min="0" max="100"/>
+      </div>
+    </div>
+    <h2 class="step5_subtitle">Attrape le slider</h2>
+    <p class="step5_remaining_time">10:00</p>
+    <div class="user-interface">
+        <div class="ecrous">
+            <img src="../images/ecrous.png" alt="" class="ecrou">
+            <img src="../images/ecrous.png" alt="" class="ecrou">
+            <img src="../images/ecrous.png" alt="" class="ecrou">
+            <img src="../images/ecrous.png" alt="" class="ecrou">
+        </div>
+    </div>
+    <div class="camera-container">
+        <div class="camDiv">
+          <canvas id="step5_canvasbox" class="border step5_canvasbox"></canvas>
+          <video class="step5_videobox" autoplay="autoplay" id="step5_video"></video>
+        </div>
+        <div id="cursor"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"></script>
+    <script defer type="module" src="../scripts/step5.js"></script>
+  </body>
+</html>

@@ -6,7 +6,7 @@
     <title>Step 2</title>
     <link rel="stylesheet" href="../style.css" />
   </head>
-  <body class="game">
+  <body class="game step-2-game">
     <img
       src="../images/step-2-title-container.png"
       class="step2-title-container"
@@ -14,13 +14,9 @@
     <div class="pseudo-field-container">
       <p class="step2-pseudo-field">_______</p>
     </div>
-    <div class="user-interface">
-      <div class="ecrous">
-        <img src="../images/ecrous.png" alt="" class="ecrou" />
-        <img src="../images/ecrous.png" alt="" class="ecrou" />
-        <img src="../images/ecrous.png" alt="" class="ecrou" />
-        <img src="../images/ecrous.png" alt="" class="ecrou" />
-      </div>
+    <div class="buttons hidden">
+      <button class="confirm" id="oui">Oui</button>
+      <button class="confirm" id="non">Non</button>
     </div>
     <div class="camera-container">
       <div class="scan-bar"></div>
@@ -30,12 +26,13 @@
           <span></span>
         </div>
         <span class="rec-txt">REC</span>
-
+      </div>
+      <div class="video">
         <canvas id="step-2-canvas"></canvas>
         <video id="step-2-video" autoplay="autoplay"></video>
-        <div class="cursor"></div>
       </div>
     </div>
+    <div class="cursor"></div>
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"

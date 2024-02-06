@@ -110,9 +110,7 @@ function activeButtons(prediction) {
 
         // Hauteur du slider
         const sliderHeight = slideSize.height;
-        slider.value =
-          ((sliderBottomDistance - prediction.bbox[1]) / (sliderHeight / 100)) *
-          2.1;
+        slider.value = ((sliderBottomDistance - prediction.bbox[1]) / (sliderHeight / 100)) * 2.1;
       }
     }
   });

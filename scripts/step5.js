@@ -54,8 +54,6 @@ function runDetection() {
         const [x, y, width, height] = prediction.bbox;
         moveCursor(prediction.bbox, cursor);
         activeButtons(prediction);
-      } else if (prediction.label == "open") {
-      cursor.style.backgroundImage = "url('../images/open-cursor.png')";
       }
     });
 
@@ -105,8 +103,8 @@ function checkCollision(block) {
 function activeButtons(prediction) {
   sliders.forEach((slider) => {
     if (prediction.label === "closed") {
+      cursor.style.backgroundImage = "url('/images/closed-cursor.png')";
       if (checkCollision(slider)) {
-        cursor.style.backgroundImage = "url('../images/closed-cursor.png')";
         // Récupérer les tailles du slider
         const slideSize = slider.getBoundingClientRect();
 
@@ -128,10 +126,7 @@ function activeButtons(prediction) {
         } else if (slider.id == 'range-3') {
           range2.value = 90;
         }
-
       }
-    } else if (prediction.label == "open") {
-      cursor.style.backgroundImage = "url('../images/open-cursor.png')";
     }
   });
 }

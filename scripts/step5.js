@@ -52,18 +52,6 @@ function activeButtons(prediction) {
   });
 }
 
-function checkCollision(block) {
-  const cursorRect = cursor.getBoundingClientRect();
-  if (
-    cursorRect.left < block.right &&
-    cursorRect.right > block.left &&
-    cursorRect.top < block.bottom &&
-    cursorRect.bottom > block.top
-  ) {
-    return block;
-  }
-}
-
 function updateTimer() {
   timer.innerText = time;
 

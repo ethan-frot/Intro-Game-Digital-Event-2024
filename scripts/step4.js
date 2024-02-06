@@ -1,8 +1,10 @@
 const btn = document.querySelector(".btn");
 const btnImage = document.querySelector(".btn-image");
 const oxygen = document.querySelector(".oxygen");
+const backgroundVideo = document.querySelector(".step-4-background-video");
 
 function pushButton(prediction) {
+  backgroundVideo.play();
   if (prediction.label === "closed") {
     if (checkCollision(btn.getBoundingClientRect())) {
       btnImage.src = "../images/step-4-button-pressed.png";

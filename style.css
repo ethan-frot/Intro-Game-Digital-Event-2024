@@ -405,6 +405,11 @@ input[type=range]:not(.vertical) {
   touch-action: none;
 }
 
+.motor {
+  width: 200px;
+  margin-right: 1200px;
+}
+
 .step-6-background {
   background-image: url(/images/step-6-background.png);
   background-size: cover;

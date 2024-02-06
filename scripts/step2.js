@@ -24,7 +24,7 @@ const modelParams = {
 setTimeout(() => {
   startVideo();
   initGame();
-}, 100);
+}, 500);
 
 function vocalQuestionAssistant(file) {
   return new Promise((resolve) => {

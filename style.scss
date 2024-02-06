@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Changa+One&display=swap");
 @font-face {
   font-family: "Bitsential";
   src: url(/assets/fonts/Bitsential.otf);
@@ -103,7 +103,6 @@ body {
   display: flex;
   bottom: 256px;
   position: absolute;
-
 }
 .confirm {
   background-size: contain;
@@ -252,7 +251,7 @@ canvas {
 }
 
 .oxygen {
-  width: 300px;
+  width: 200px;
   margin-right: 1200px;
 }
 
@@ -261,7 +260,7 @@ canvas {
   position: absolute;
 
   img {
-    width: 150px;
+    width: 200px;
   }
 }
 

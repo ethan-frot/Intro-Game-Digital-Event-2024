@@ -1,11 +1,7 @@
-function vocalResponse(responseText) {
-  var msg = new SpeechSynthesisUtterance();
-  msg.text = responseText;
-  msg.lang = "fr-FR";
-  window.speechSynthesis.speak(msg);
-}
-setTimeout(function () {
-  vocalResponse("Bonjour, veuillez sourire pour commencer");
+import vocalQuestionAssistant from "../scripts/libs/elevenlabs.js"
+
+setTimeout(async () => {
+  await vocalQuestionAssistant("Bonjour, veuillez sourire pour commencer")
 }, 1000);
 
 const video = document.getElementById("video");
@@ -16,6 +12,7 @@ let ageHistory = [];
 let faceDetectActive = true;
 let intervalState = null;
 let faceScanerActive = false;
+let scanning = false;
 
 const MODEL_PATH = "../assets/face-api/models";
 
@@ -73,8 +70,9 @@ function handlePlay() {
         expressions[a] > expressions[b] ? a : b
       );
 
-      if (highestValueKey === "happy" && faceScanerActive === false) {
+      if (highestValueKey === "happy" && faceScanerActive === false && scanning === false) {
         startUserScan();
+        scanning = true
       }
     }
 
@@ -106,6 +104,7 @@ function handlePlay() {
       faceapi.draw.drawDetections(canvas, resizedDetections);
       faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
       faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
+
     } else {
       descriptionUser = {
         age: "18",
@@ -121,11 +120,9 @@ function handlePlay() {
 
 video.addEventListener("play", handlePlay);
 
-function startUserScan() {
-  var msg = new SpeechSynthesisUtterance();
-  msg.text = "Scane en cours, veuillez patienter";
-  msg.lang = "fr-FR";
-  window.speechSynthesis.speak(msg);
+async function startUserScan() {
+  await vocalQuestionAssistant("Scane en cours veillez patienter")
+
   faceScanerActive = true;
 
   const scanBar = document.querySelector(".scan-bar");
@@ -136,23 +133,21 @@ function startUserScan() {
   }, 5000);
 }
 
-function startDescriptionBeforeRedirect() {
-  var msg = new SpeechSynthesisUtterance();
+async function startDescriptionBeforeRedirect() {
   const { age, gender } = descriptionUser;
   console.log("age : ", age);
 
-  msg.text = `Bonjour ${
+  let msg = `Bonjour ${
     gender === "male" ? "commandant" : "commandante"
   }, nous sommes en l'an 3450, votre age rééle est de ${
     age + 1426
   } ans, votre age crystalique est de ${age} ans. Nous allons pouvoir commencer`;
-  msg.lang = "fr-FR";
-  window.speechSynthesis.speak(msg);
-  faceScanerActive = true;
+
+  await vocalQuestionAssistant(msg)  
 
   setTimeout(function () {
     redirectToNextPage();
-  }, 15000);
+  }, 20000);
 }
 
 function redirectToNextPage() {

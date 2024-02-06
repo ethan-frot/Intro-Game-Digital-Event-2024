@@ -220,16 +220,17 @@ canvas {
     opacity: 1;
   }
 }
-.all-steps-background {
-  position: relative;
-  z-index: 10;
+.step-3-background {
+  background: center/contain no-repeat;
+  background-image: url("/images/step-3-background.png");
 }
 
-.loading-ia {
-  position: absolute;
-  top: -60px;
-  width: 1850px;
-  height: 100%;
+.ia {
+  position: relative;
+}
+
+.ia-talking {
+  display: none;
 }
 
 .step-4-background {

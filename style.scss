@@ -1,17 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
 @font-face {
   font-family: "Bitsential";
   src: url(/assets/fonts/Bitsential.otf);
 }
 
+@font-face {
+  font-family: "Futurama";
+  src: url(/assets/fonts/Futurama.ttf);
+}
+
 * {
   box-sizing: border-box;
 }
-@font-face {
-  font-family: 'futurame-bold';
-  src: url("assets/fonts/fr-bold.ttf") format("truetype");
-}
-$font-futurama: 'futurame-bold', sans-serif;
 :root {
   --primary-text-color: #a6fdbc;
   --color-container-background: rgba(5, 15, 0, 0.7);
@@ -51,9 +50,8 @@ body {
   align-items: center;
   justify-content: center;
   position: absolute;
-  font-family: $font-futurama;
   z-index: 1;
-  bottom: 170px;
+  bottom: 70px;
   padding: 0 16px 0 16px;
   max-height: 120px;
   min-width: 410px;
@@ -68,25 +66,34 @@ body {
   }
 }
 
+.character-container {
+  min-height: 300px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: center / contain no-repeat;
+  background-color: #738387;
+  background-image: url("/assets/characters/men/baby/baby-men-angry.jpg");
+  border: thick solid #738387;
+  border-radius: 10px;
+
+  .character-text {
+    z-index: 2;
+    font-family: "Futurama";
+    color: #a6fdbc;
+  }
+}
+
 //**************************//
 //         STEP 2           //
 //**************************//
-.hidden {
-  display: none;
-}
+
 .game {
   background-image: url(images/step-1-background.png);
   background-size: cover;
   background-position: center;
 }
-.step-2-game {
-  background-image: url(images/step-2-background.png);
-}
-.confirm {
-  font-size: 30px;
-  width: 100px;
-  height: 50px;
-}
+
 .ui-image-1 {
   position: absolute;
   top: 50px;
@@ -94,6 +101,7 @@ body {
   z-index: 99;
   width: 200px;
 }
+
 .rec-container {
   position: absolute;
   top: 30px;
@@ -301,32 +309,7 @@ canvas {
   position: absolute;
   z-index: 501;
 }
-.step5_range_control {
-  position: relative;
-}
-.range-bg {
-  width: 50px;
-  height: 448px;
-  background-color: var(--slider-background-color);
-  border-radius: 64px;
-  position: absolute;
-}
-.range-center-bar {
-  width: 46px;
-  height: 8px;
-  background-color: var(--slider-bar-color);
-  position: absolute;
-}
-.sliders-temp {
-  margin: 0;
-  position: absolute;
-  right: -85px;
-  top: 44%;
-  color: var(--slider-bar-color);
-  font-family: "Changa One";
-  font-size: 50px;
-  letter-spacing: 1.5px;
-}
+
 .step-5-text {
   bottom: 150px;
 }
@@ -346,7 +329,7 @@ input[type="range"].vertical {
   -webkit-appearance: slider-vertical;
   writing-mode: bt-lr;
   position: relative;
-  height: 400px;
+  height: 448px;
   grid: 1/1/1/1;
 }
 
@@ -370,13 +353,14 @@ input[type="range"]:not(.vertical)::-webkit-slider-thumb {
 
 input[type="range"]:not(.vertical) {
   appearance: none;
+  background-color: transparent;
   rotate: -90deg;
   grid: 1/1/1/1;
   width: 448px;
   height: 60px;
   border-radius: 41px;
   border: 7px var(--slider-thumb-color) solid;
-  background-color: transparent;
+  background-color: var(--slider-background-color);
   position: absolute;
 }
 

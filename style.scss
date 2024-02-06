@@ -72,7 +72,7 @@ body {
 //         STEP 2           //
 //**************************//
 .hidden {
-  display: none;
+  display: none !important;
 }
 .game {
   background-image: url(images/step-1-background.png);
@@ -82,10 +82,23 @@ body {
 .step-2-game {
   background-image: url(images/step-2-background.png);
 }
+.buttons {
+  z-index: 2;
+  display: flex;
+  bottom: 256px;
+  position: absolute;
+
+}
 .confirm {
-  font-size: 30px;
-  width: 100px;
-  height: 50px;
+  background-size: contain;
+  width: 256px;
+  height: 256px;
+}
+#oui {
+  background-image: url(images/oui-button-normal.png);
+}
+#non {
+  background-image: url(images/non-button-normal.png);
 }
 .ui-image-1 {
   position: absolute;

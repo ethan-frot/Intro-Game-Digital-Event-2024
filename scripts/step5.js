@@ -9,7 +9,12 @@ const timer = document.querySelector(".timer");
 const timerInterval = setInterval(updateTimer, 1000);
 let trackButton = document.querySelector("#trackbutton");
 
-let time = 30;
+const range1 = document.querySelector('#range-1');
+const range2 = document.querySelector('#range-2');
+const range3 = document.querySelector('#range-3');
+
+
+let time = 30000;
 
 let model = null;
 let isOpen = false;
@@ -111,10 +116,32 @@ function activeButtons(prediction) {
         // Hauteur du slider
         const sliderHeight = slideSize.height;
         slider.value = ((sliderBottomDistance - prediction.bbox[1]) / (sliderHeight / 100)) * 2.1;
+
+        // changement random d'un autre slider
+        if (slider.id == 'range-1') {
+          range3.value = 75;
+        } else if (slider.id == 'range-2') {
+          range1.value = 25;
+          range3.value = 95;
+        } else if (slider.id == 'range-3') {
+          range2.value = 90;
+        }
       }
     }
   });
 }
+
+// pour générer un nombre random pour le changement auto des sliders
+// function getRandomNumber() {
+//   const rangeSelector = Math.random() < 0.5 ? 1 : 2;
+//   let randomNumber;
+//   if (rangeSelector === 1) {
+//     randomNumber = Math.floor(Math.random() * (40 - 10 + 1)) + 10;
+//   } else {
+//     randomNumber = Math.floor(Math.random() * (90 - 60 + 1)) + 60;
+//   }
+//   return randomNumber;
+// }
 
 function updateTimer() {
   timer.innerText = time;

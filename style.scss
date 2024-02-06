@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
 @font-face {
   font-family: "Bitsential";
   src: url(/assets/fonts/Bitsential.otf);
@@ -300,7 +301,32 @@ canvas {
   position: absolute;
   z-index: 501;
 }
-
+.step5_range_control {
+  position: relative;
+}
+.range-bg {
+  width: 50px;
+  height: 448px;
+  background-color: var(--slider-background-color);
+  border-radius: 64px;
+  position: absolute;
+}
+.range-center-bar {
+  width: 46px;
+  height: 8px;
+  background-color: var(--slider-bar-color);
+  position: absolute;
+}
+.sliders-temp {
+  margin: 0;
+  position: absolute;
+  right: -85px;
+  top: 44%;
+  color: var(--slider-bar-color);
+  font-family: "Changa One";
+  font-size: 50px;
+  letter-spacing: 1.5px;
+}
 .step-5-text {
   bottom: 150px;
 }
@@ -320,7 +346,7 @@ input[type="range"].vertical {
   -webkit-appearance: slider-vertical;
   writing-mode: bt-lr;
   position: relative;
-  height: 448px;
+  height: 400px;
   grid: 1/1/1/1;
 }
 
@@ -344,14 +370,13 @@ input[type="range"]:not(.vertical)::-webkit-slider-thumb {
 
 input[type="range"]:not(.vertical) {
   appearance: none;
-  background-color: transparent;
   rotate: -90deg;
   grid: 1/1/1/1;
   width: 448px;
   height: 60px;
   border-radius: 41px;
   border: 7px var(--slider-thumb-color) solid;
-  background-color: var(--slider-background-color);
+  background-color: transparent;
   position: absolute;
 }
 

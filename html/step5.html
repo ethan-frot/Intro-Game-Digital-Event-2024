@@ -11,37 +11,77 @@
       <div class="slider-container">
         <div class="range-bg"></div>
         <div class="range-center-bar"></div>
-        <input id="range-1" class="step5_range" type="range" min="0" value="35" max="100" />
-        <input id="input-disabled" style="opacity: 0" type="range" class="vertical step5_range_control" min="0" max="100"/>
+        <input
+          id="range-1"
+          class="step5_range"
+          type="range"
+          min="0"
+          value="35"
+          max="100"
+        />
+        <input
+          id="input-disabled"
+          style="opacity: 0"
+          type="range"
+          class="vertical step5_range_control"
+          min="0"
+          max="100"
+        />
       </div>
       <div class="slider-container">
         <div class="range-bg"></div>
         <div class="range-center-bar"></div>
-        <input id="range-2" class="step5_range" type="range" min="0" value="65" max="100" />
-        <input style="opacity: 0" type="range" class="vertical step5_range_control" min="0" max="100"/>
+        <input
+          id="range-2"
+          class="step5_range"
+          type="range"
+          min="0"
+          value="65"
+          max="100"
+        />
+        <input
+          style="opacity: 0"
+          type="range"
+          class="vertical step5_range_control"
+          min="0"
+          max="100"
+        />
       </div>
       <div class="slider-container">
         <div class="range-bg"></div>
         <div class="range-center-bar"></div>
-        <input id="range-3" class="step5_range" type="range" min="0" value="90" max="100" />
-        <input style="opacity: 0" type="range" class="vertical step5_range_control" min="0" max="100"/>
+        <input
+          id="range-3"
+          class="step5_range"
+          type="range"
+          min="0"
+          value="90"
+          max="100"
+        />
+        <input
+          style="opacity: 0"
+          type="range"
+          class="vertical step5_range_control"
+          min="0"
+          max="100"
+        />
       </div>
       <h1 class="sliders-temp">0°</h1>
     </div>
+
+    <video loop class="motor">
+      <source src="/assets/videos/step-5-motor.webm" type="video/webm" />
+      Votre navigateur ne prend pas en charge la balise vidéo.
+    </video>
+
     <h1 class="timer">30</h1>
-    <h1 class="step-5-text blinking-text">Attrape le slider</h1>
-    <div class="camera-container">
-      <div class="camDiv">
-        <canvas id="step5_canvasbox" class="border step5_canvasbox"></canvas>
-        <video
-          class="step5_videobox"
-          autoplay="autoplay"
-          id="step5_video"
-        ></video>
-      </div>
-      <div class="cursor"></div>
+    <h1 class="step-5-text blinking-text">Met la main sur le bouton</h1>
+    <canvas id="canvas" class="border canvasbox"></canvas>
+    <video id="myvideo" class="videobox" autoplay="autoplay"></video>
+    <div class="cursor"></div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"></script>
-    <script defer type="module" src="../scripts/step5.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"></script>
+    <script defer src="../scripts/all-steps.js"></script>
+    <script defer src="../scripts/step5.js"></script>
   </body>
 </html>

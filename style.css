@@ -221,16 +221,15 @@ canvas {
   }
 }
 .step-3-background {
-  background: center/contain no-repeat;
-  background-image: url("/images/step-3-background.png");
-}
-
-.ia {
   position: relative;
+  z-index: 10;
 }
 
-.ia-talking {
-  display: none;
+.loading-ia {
+  position: absolute;
+  top: -60px;
+  width: 1850px;
+  height: 100%;
 }
 
 .step-4-background {

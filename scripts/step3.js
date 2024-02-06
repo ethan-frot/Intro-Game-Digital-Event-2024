@@ -1,29 +1,12 @@
-const loading = document.querySelector(".loading");
-const iaTalking = document.querySelector(".ia-talking");
+const loadingIa = document.querySelector(".loading-ia");
 
 document.addEventListener("click", () => {
-  loading.play();
+  loadingIa.play();
 });
 
-loading.addEventListener("ended", () => {
-  loading.style.display = "none";
-  iaTalking.style.display = "flex";
-  talkingIa("step-3-ia-talking.mp3");
-  iaTalking.play();
+loadingIa.addEventListener("ended", () => {
+  redirectToNextPage();
 });
-
-function talkingIa(file) {
-  return new Promise((resolve) => {
-    let talking = new Audio(`../assets/sounds/${file}`);
-    talking.onended = function () {
-      setTimeout(() => {
-        resolve();
-        redirectToNextPage();
-      }, 500);
-    };
-    talking.play();
-  });
-}
 
 function redirectToNextPage() {
   window.location.href = "step4.html";

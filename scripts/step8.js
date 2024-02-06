@@ -1,18 +1,12 @@
-const text = document.querySelector(".step-8-text");
+const end = document.querySelector(".end");
 
-function startBlinking() {
-  let blinkingInterval = setInterval(function () {
-    text.style.opacity = text.style.opacity === "0" ? "1" : "0";
-  }, 600);
-
-  setTimeout(function () {
-    clearInterval(blinkingInterval);
-    text.style.opacity = "1";
-    redirectToNextPage();
-  }, 15000);
+function launchVideo() {
+  end.play();
 }
 
-startBlinking();
+setTimeout(function () {
+  redirectToNextPage();
+}, 15000);
 
 window.addEventListener("keydown", function (event) {
   if (event.code === "ArrowDown") {

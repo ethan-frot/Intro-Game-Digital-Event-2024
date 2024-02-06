@@ -228,16 +228,24 @@ canvas {
 //         STEP 3           //
 //**************************//
 
-.step-3-background {
-  background: center / contain no-repeat;
-  background-image: url("/images/step-3-background.png");
+.all-steps-background {
+  position: absolute;
+  z-index: 10;
 }
 
-.ia {
-  position: relative;
+.loading-ia,
+.step-4-background-video,
+.step-5-background-video,
+.angryIa,
+.step-7-background-video,
+.step-8-background-video {
+  position: absolute;
+  top: -60px;
+  width: 1850px;
+  height: 100%;
 }
 
-.ia-talking {
+.cursor-step-3-6 {
   display: none;
 }
 
@@ -245,19 +253,17 @@ canvas {
 //         STEP 4           //
 //**************************//
 
-.step-4-background {
-  background: center / contain no-repeat;
-  background-image: url("/images/step-4-background.png");
-}
-
 .oxygen {
   width: 200px;
   margin-right: 1200px;
+  z-index: 10;
+  opacity: 0.9;
 }
 
 .btn {
   all: unset;
   position: absolute;
+  opacity: 0.9;
 
   img {
     width: 200px;
@@ -309,9 +315,6 @@ canvas {
   z-index: 1;
 }
 
-.step-5-game {
-  background-image: url(images/step-5-background.png);
-}
 .timer {
   font-family: "Bitsential";
   color: #2f6976;
@@ -337,6 +340,7 @@ canvas {
 .sliders {
   display: flex;
   gap: 64px;
+  opacity: 0.8;
 }
 .range-center-bar {
   position: absolute;
@@ -350,6 +354,7 @@ canvas {
   border-radius: 64px;
   background-color: var(--slider-background-color);
   width: 48px;
+  opacity: 0.8;
 }
 .sliders-temp {
   letter-spacing: 1.5px;
@@ -413,8 +418,10 @@ input[type="range"]:not(.vertical) {
 }
 
 .motor {
+  position: absolute;
   width: 200px;
   margin-right: 1200px;
+  opacity: 0.8;
 }
 
 //**************************//
@@ -450,11 +457,11 @@ input[type="range"]:not(.vertical) {
 .step-7-btn-container {
   position: absolute;
   display: flex;
-  gap: 50px;
+  gap: 100px;
 }
 
 .step-7-btn {
-  width: 200px;
+  width: 300px;
 }
 
 .step-7-text {
@@ -465,19 +472,9 @@ input[type="range"]:not(.vertical) {
 //         STEP 8           //
 //**************************//
 
-.step-8-background {
-  background-image: url(/images/step-8-background.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .step-8-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 920px;
-  height: 50px;
+  position: absolute;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
+  animation: recAnimation 2s infinite 1s;
 }

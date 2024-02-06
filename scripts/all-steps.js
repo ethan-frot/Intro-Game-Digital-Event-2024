@@ -43,6 +43,15 @@ function runDetection() {
         if (window.location.href.endsWith("step5.html")) {
           activeButtons(prediction);
         }
+
+        // Step 3 & Step 6 :
+        if (
+          window.location.href.endsWith("step3.html") ||
+          window.location.href.endsWith("step6.html") ||
+          window.location.href.endsWith("step6.html")
+        ) {
+          launchVideo();
+        }
       }
     });
     requestAnimationFrame(runDetection);

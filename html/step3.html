@@ -6,16 +6,21 @@
     <title>Step 3</title>
     <link rel="stylesheet" href="../style.css" />
   </head>
-  <body class="step-3-background">
-    <video class="loading">
-      <source src="/assets/videos/step-3-loading.mp4" muted type="video/mp4" />
+  <body>
+    <img class="all-steps-background" src="/images/all-steps-background.png" />
+    <video class="loading-ia">
+      <source src="/assets/videos/step-3.mp4" type="video/mp4" />
       Votre navigateur ne prend pas en charge la balise vidéo.
     </video>
 
-    <video muted loop class="ia-talking">
-      <source src="/assets/videos/step-3-ia.mp4" type="video/mp4" />
-      Votre navigateur ne prend pas en charge la balise vidéo.
-    </video>
+    <canvas id="canvas" class="border canvasbox"></canvas>
+    <video id="myvideo" class="videobox" autoplay="autoplay"></video>
+    <div class="cursor cursor-step-3-6"></div>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"
+    ></script>
+    <script defer src="../scripts/all-steps.js"></script>
 
     <script src="../scripts/step3.js"></script>
   </body>

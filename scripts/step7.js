@@ -2,15 +2,16 @@ const btn1 = document.querySelector(".step-7-btn1");
 const btn2 = document.querySelector(".step-7-btn2");
 const btn3 = document.querySelector(".step-7-btn3");
 const btn4 = document.querySelector(".step-7-btn4");
+const backgroundVideo = document.querySelector(".step-7-background-video");
 
 let activatedButtons = 0;
 
 function pushButton(prediction) {
+  backgroundVideo.play();
   if (prediction.label === "closed") {
     if (checkCollision(btn1.getBoundingClientRect())) {
       btn1.src = "../images/step-7-button-active.png";
       activatedButtons = 1;
-      console.log(activatedButtons);
     } else if (
       checkCollision(btn4.getBoundingClientRect()) &&
       activatedButtons == 1

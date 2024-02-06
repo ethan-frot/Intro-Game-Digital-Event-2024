@@ -4,6 +4,7 @@ const inputDisabled = document.querySelector("#input-disabled");
 const timer = document.querySelector(".timer");
 const timerInterval = setInterval(updateTimer, 1000);
 const motor = document.querySelector(".motor");
+const backgroundVideo = document.querySelector(".step-5-background-video");
 
 const range1 = document.querySelector("#range-1");
 const range2 = document.querySelector("#range-2");
@@ -20,9 +21,10 @@ sliderContainer.forEach((slider) => {
 });
 
 function activeButtons(prediction) {
+  motor.play();
+  backgroundVideo.play();
   sliders.forEach((slider) => {
     if (prediction.label === "closed") {
-      motor.play();
       if (checkCollision(slider.getBoundingClientRect())) {
         // Récupérer les tailles du slider
         const slideSize = slider.getBoundingClientRect();

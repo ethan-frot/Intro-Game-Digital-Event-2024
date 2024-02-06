@@ -1,0 +1,460 @@
+@import url("https://fonts.googleapis.com/css2?family=Changa+One&display=swap");
+@font-face {
+  font-family: "Bitsential";
+  src: url(/assets/fonts/Bitsential.otf);
+}
+@font-face {
+  font-family: "Futurama";
+  src: url(/assets/fonts/Futurama.ttf);
+}
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-text-color: #a6fdbc;
+  --color-container-background: rgba(5, 15, 0, 0.7);
+  --slider-thumb-color: #ff8e48;
+  --slider-bar-color: #14ff00;
+  --slider-background-color: #fffbf7;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-container {
+  position: relative;
+  width: 80%;
+  height: 90%;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.step2-title-container {
+  position: absolute;
+  z-index: 1;
+  top: 110px;
+}
+
+.pseudo-field-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  bottom: 170px;
+  padding: 0 16px 0 16px;
+  max-height: 120px;
+  min-width: 410px;
+  border-radius: 30px;
+  background-color: var(--color-container-background);
+}
+.pseudo-field-container .step2-pseudo-field {
+  text-align: center;
+  font-size: 69px;
+  font-weight: 700;
+  letter-spacing: 11px;
+  font-family: "Futurama";
+  color: var(--primary-text-color);
+}
+
+.character-container {
+  min-height: 300px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: center/contain no-repeat;
+  background-color: #738387;
+  background-image: url("/assets/characters/men/baby/baby-men-angry.jpg");
+  border: thick solid #738387;
+  border-radius: 10px;
+}
+.character-container .character-text {
+  z-index: 2;
+  font-family: "Futurama";
+  color: #a6fdbc;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.game {
+  background-image: url(images/step-1-background.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.buttons {
+  z-index: 2;
+  display: flex;
+  bottom: 256px;
+  position: absolute;
+}
+
+.confirm {
+  background-size: contain;
+  width: 256px;
+  height: 256px;
+}
+
+#oui {
+  background-image: url(images/oui-button-normal.png);
+}
+
+#non {
+  background-image: url(images/non-button-normal.png);
+}
+
+.ui-image-1 {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  z-index: 99;
+  width: 200px;
+}
+
+.rec-container {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  z-index: 9;
+}
+
+.rec-txt {
+  margin-left: 20px;
+  font-size: 30px;
+  font-family: "Futurama";
+  color: #b6c2c3;
+  font-weight: 900;
+}
+
+.camera-container {
+  position: relative;
+  width: 80%;
+  height: 90%;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.rec-icon {
+  height: 50px;
+  width: 50px;
+  background-image: url(images/bg-rec.png);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rec-icon span {
+  background-color: red;
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  animation: recAnimation 1s infinite;
+}
+
+canvas {
+  position: absolute;
+}
+
+.video {
+  transform: translate(-50px, -50px);
+}
+
+#canvasContainer {
+  position: absolute;
+}
+
+.face-target {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  animation: recAnimation 1s infinite 1s;
+}
+
+.scan-bar {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  height: 10px;
+  width: 100%;
+  background-color: red;
+  z-index: 999;
+}
+.scan-bar.active {
+  animation: scanTranslate 3s normal;
+}
+
+@keyframes scanTranslate {
+  0% {
+    top: -20px;
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+    top: 100%;
+  }
+}
+@keyframes recAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.step-3-background {
+  background: center/contain no-repeat;
+  background-image: url("/images/step-3-background.png");
+}
+
+.ia {
+  position: relative;
+}
+
+.ia-talking {
+  display: none;
+}
+
+.step-4-background {
+  background: center/contain no-repeat;
+  background-image: url("/images/step-4-background.png");
+}
+
+.oxygen {
+  width: 300px;
+  margin-right: 1200px;
+}
+
+.btn {
+  all: unset;
+  position: absolute;
+}
+.btn img {
+  width: 150px;
+}
+
+.blinking-text {
+  position: absolute;
+  bottom: 220px;
+  color: #2f6976;
+  font-family: "Bitsential";
+  font-weight: 900;
+  font-size: 55px;
+  letter-spacing: 0.6px;
+  opacity: 1;
+  animation: recAnimation 2s infinite 1s;
+}
+
+.canvasbox {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.videobox {
+  display: none;
+}
+
+.cursor {
+  position: fixed;
+  right: 200px;
+  width: 100px;
+  height: 100px;
+  z-index: 10000;
+  background: center/contain no-repeat;
+  background-image: url("/images/open-cursor.png");
+}
+
+.sliders,
+.step5_remaining_time {
+  position: absolute;
+  z-index: 1;
+}
+
+.step-5-game {
+  background-image: url(images/step-5-background.png);
+}
+
+.timer {
+  font-family: "Bitsential";
+  color: #2f6976;
+  position: absolute;
+  bottom: 200px;
+  right: 150px;
+}
+
+.step5_canvasbox {
+  opacity: 0;
+  position: absolute;
+  z-index: 501;
+}
+
+.step5_videobox {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  z-index: 501;
+}
+
+.step-5-text {
+  bottom: 150px;
+}
+
+.sliders {
+  display: flex;
+  gap: 64px;
+}
+
+.range-center-bar {
+  position: absolute;
+  background-color: var(--slider-bar-color);
+  width: 48px;
+  height: 5px;
+}
+
+.range-bg {
+  position: absolute;
+  height: 448px;
+  border-radius: 64px;
+  background-color: var(--slider-background-color);
+  width: 48px;
+}
+
+.sliders-temp {
+  letter-spacing: 1.5px;
+  position: absolute;
+  right: -72px;
+  top: 36%;
+  font-size: 50px;
+  color: var(--slider-bar-color);
+  font-family: "Changa One";
+}
+
+.slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type=range].vertical {
+  -moz-appearance: slider-vertical;
+       appearance: slider-vertical;
+  -webkit-appearance: slider-vertical;
+  writing-mode: bt-lr;
+  position: relative;
+  height: 448px;
+  grid: 1/1/1/1;
+}
+
+input[type=range]:not(.vertical)::-webkit-slider-runnable-track {
+  position: relative;
+  height: 8px;
+  border-radius: 8px;
+}
+
+input[type=range]:not(.vertical)::-webkit-slider-thumb {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+          appearance: none;
+  position: relative;
+  background-color: var(--slider-thumb-color);
+  border-radius: 64px;
+  width: 46px;
+  height: 139px;
+  top: 50%;
+  translate: 0 -50%;
+}
+
+input[type=range]:not(.vertical) {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  rotate: -90deg;
+  grid: 1/1/1/1;
+  width: 448px;
+  height: 60px;
+  border-radius: 41px;
+  border: 7px var(--slider-thumb-color) solid;
+  position: absolute;
+}
+
+#range-2,
+#range-3 {
+  pointer-events: none;
+  touch-action: none;
+}
+
+.step-6-background {
+  background-image: url(/images/step-6-background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.step-6-neutral-ia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 700px;
+  height: 500px;
+}
+
+.step-7-background {
+  background-image: url(/images/step-7-background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.step-7-btn-container {
+  position: absolute;
+  display: flex;
+  gap: 50px;
+}
+
+.step-7-btn {
+  width: 200px;
+}
+
+.step-7-text {
+  bottom: 180px;
+}
+
+.step-8-background {
+  background-image: url(/images/step-8-background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.step-8-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 920px;
+  height: 50px;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}/*# sourceMappingURL=style.css.map */

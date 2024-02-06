@@ -22,8 +22,9 @@ const modelParams = {
 };
 
 setTimeout(() => {
+  startVideo();
   initGame();
-}, 1000);
+}, 500);
 
 function vocalQuestionAssistant(file) {
   return new Promise((resolve) => {
@@ -80,8 +81,6 @@ function startVideo() {
     runDetection();
   });
 }
-
-startVideo();
 
 function runDetection() {
   model.detect(video).then((predictions) => {

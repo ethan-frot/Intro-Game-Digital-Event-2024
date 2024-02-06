@@ -14,7 +14,7 @@ const range2 = document.querySelector('#range-2');
 const range3 = document.querySelector('#range-3');
 
 
-let time = 30000;
+let time = 30;
 
 let model = null;
 let isOpen = false;

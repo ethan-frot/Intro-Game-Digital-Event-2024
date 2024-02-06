@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
 @font-face {
   font-family: "Bitsential";
   src: url(/assets/fonts/Bitsential.otf);
@@ -51,7 +52,7 @@ body {
   justify-content: center;
   position: absolute;
   z-index: 1;
-  bottom: 70px;
+  bottom: 170px;
   padding: 0 16px 0 16px;
   max-height: 120px;
   min-width: 410px;
@@ -62,6 +63,7 @@ body {
     font-size: 69px;
     font-weight: 700;
     letter-spacing: 11px;
+    font-family: "Futurama";
     color: var(--primary-text-color);
   }
 }
@@ -87,13 +89,33 @@ body {
 //**************************//
 //         STEP 2           //
 //**************************//
+.hidden {
+  display: none !important;
+}
 
 .game {
   background-image: url(images/step-1-background.png);
   background-size: cover;
   background-position: center;
 }
+.buttons {
+  z-index: 2;
+  display: flex;
+  bottom: 256px;
+  position: absolute;
 
+}
+.confirm {
+  background-size: contain;
+  width: 256px;
+  height: 256px;
+}
+#oui {
+  background-image: url(images/oui-button-normal.png);
+}
+#non {
+  background-image: url(images/non-button-normal.png);
+}
 .ui-image-1 {
   position: absolute;
   top: 50px;
@@ -113,7 +135,7 @@ body {
 .rec-txt {
   margin-left: 20px;
   font-size: 30px;
-  font-family: "Futura";
+  font-family: "Futurama";
   color: #b6c2c3;
   font-weight: 900;
 }
@@ -317,6 +339,28 @@ canvas {
   display: flex;
   gap: 64px;
 }
+.range-center-bar {
+  position: absolute;
+  background-color: var(--slider-bar-color);
+  width: 48px;
+  height: 5px;
+}
+.range-bg {
+  position: absolute;
+  height: 448px;
+  border-radius: 64px;
+  background-color: var(--slider-background-color);
+  width: 48px;
+}
+.sliders-temp {
+  letter-spacing: 1.5px;
+  position: absolute;
+  right: -72px;
+  top: 36%;
+  font-size: 50px;
+  color: var(--slider-bar-color);
+  font-family: "Changa One";
+}
 .slider-container {
   position: relative;
   display: flex;
@@ -360,7 +404,6 @@ input[type="range"]:not(.vertical) {
   height: 60px;
   border-radius: 41px;
   border: 7px var(--slider-thumb-color) solid;
-  background-color: var(--slider-background-color);
   position: absolute;
 }
 

@@ -220,7 +220,7 @@ canvas {
     opacity: 1;
   }
 }
-.step-3-background {
+.all-steps-background {
   position: relative;
   z-index: 10;
 }

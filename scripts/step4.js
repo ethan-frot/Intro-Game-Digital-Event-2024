@@ -2,6 +2,7 @@ const video = document.querySelector("#myvideo");
 const canvas = document.querySelector("#canvas");
 const context = canvas.getContext("2d");
 const btn = document.querySelector(".btn");
+const btnImage = document.querySelector(".btn-image");
 const cursor = document.querySelector(".cursor");
 const oxygen = document.querySelector(".oxygen");
 
@@ -81,10 +82,12 @@ function closeHand(prediction) {
   if (prediction.label === "closed") {
     if (checkCollision(btn.getBoundingClientRect())) {
       cursor.style.backgroundImage = "url('/images/closed-cursor.png')";
+      btnImage.src = "../images/step-4-button-pressed.png";
       oxygen.play();
     }
   } else {
     cursor.style.backgroundImage = "url('/images/open-cursor.png')";
+    btnImage.src = "../images/step-4-button.png";
     oxygen.pause();
   }
 }
@@ -92,7 +95,7 @@ function closeHand(prediction) {
 oxygen.addEventListener("ended", function () {
   setTimeout(function () {
     redirectToNextPage();
-  }, 1000);
+  }, 100);
 });
 
 function redirectToNextPage() {

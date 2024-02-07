@@ -7,10 +7,13 @@ const buttonClick = new Audio("../assets/sounds/step-7-button-click.mp4");
 
 const expectedSequence = [1, 4, 2, 3];
 let clickedSequence = [];
-let sequenceIndex = 0;
+let buttonsDisabled = false;
 
 function pushButton(prediction) {
   backgroundVideo.play();
+
+  if (buttonsDisabled) return; // Si les boutons sont désactivés, ne rien faire
+
   if (prediction.label === "closed") {
     if (
       checkCollision(btn1.getBoundingClientRect()) &&
@@ -60,13 +63,22 @@ function checkSequence() {
 
 function resetSequence() {
   clickedSequence = [];
-  sequenceIndex = 0;
+  resetButtons();
+  disableButtonsTemporarily(1000); // Désactiver les boutons pendant 1 seconde
+}
+
+function resetButtons() {
+  btn1.src = "../images/step-7-button.png";
+  btn2.src = "../images/step-7-button.png";
+  btn3.src = "../images/step-7-button.png";
+  btn4.src = "../images/step-7-button.png";
+}
+
+function disableButtonsTemporarily(duration) {
+  buttonsDisabled = true;
   setTimeout(() => {
-    btn1.src = "../images/step-7-button.png";
-    btn2.src = "../images/step-7-button.png";
-    btn3.src = "../images/step-7-button.png";
-    btn4.src = "../images/step-7-button.png";
-  }, 300);
+    buttonsDisabled = false;
+  }, duration);
 }
 
 function arraysEqual(arr1, arr2) {

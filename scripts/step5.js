@@ -80,3 +80,9 @@ function updateTimer() {
 function redirectToNextPage() {
   window.location.href = "step6.html";
 }
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowRight") {
+    window.location.href = "../index.html";
+  }
+});

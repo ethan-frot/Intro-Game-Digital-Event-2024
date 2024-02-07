@@ -163,3 +163,9 @@ window.addEventListener("keydown", function (event) {
     redirectToNextPage();
   }
 });
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowRight") {
+    window.location.href = "../index.html";
+  }
+});

@@ -45,3 +45,9 @@ function pushButton(prediction) {
 function redirectToNextPage() {
   window.location.href = "step8.html";
 }
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowRight") {
+    window.location.href = "../index.html";
+  }
+});

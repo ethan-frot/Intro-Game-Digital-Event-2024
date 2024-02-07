@@ -23,7 +23,7 @@ oxygen.addEventListener("ended", function () {
 });
 
 function redirectToNextPage() {
-  window.location.href = "step5.html";
+  window.location.href = "step4-5.html";
 }
 
 window.addEventListener("keydown", function (event) {

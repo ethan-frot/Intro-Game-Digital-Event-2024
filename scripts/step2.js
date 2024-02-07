@@ -140,16 +140,15 @@ function checkCollision(block) {
 
 function closeHand(prediction) {
   if (prediction.label === "closed") {
+    cursor.style.backgroundImage = "url('/images/closed-cursor.png')";
     if (checkCollision(buttonYes.getBoundingClientRect())) {
       buttonsDiv.classList.add("hidden");
       setTimeout(() => {
-        cursor.style.backgroundImage = "url('/images/closed-cursor.png')";
         buttonYes.click();
       }, 200);
     } else if (checkCollision(buttonNon.getBoundingClientRect())) {
       buttonsDiv.classList.add("hidden");
       setTimeout(() => {
-        cursor.style.backgroundImage = "url('/images/closed-cursor.png')";
         buttonNon.click();
       }, 200);
     }

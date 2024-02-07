@@ -35,6 +35,20 @@ body {
   overflow: hidden;
 }
 
+.lottie-1 {
+  position: absolute;
+  top: -30px;
+  right: 20px;
+  z-index: 3;
+}
+
+.lottie-2 {
+  position: absolute;
+  bottom: 20px;
+  right: -50px;
+  z-index: 3;
+}
+
 .step2-title-container {
   position: absolute;
   z-index: 1;

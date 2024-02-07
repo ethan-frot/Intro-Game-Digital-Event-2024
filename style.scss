@@ -83,18 +83,19 @@ body {
 }
 
 .character-container {
+  display: none;
+  flex-direction: column;
   min-height: 300px;
   position: absolute;
   bottom: 10px;
   left: 10px;
-  background: center / contain no-repeat;
   background-color: #738387;
-  background-image: url("/assets/characters/men/baby/baby-men-angry.jpg");
-  border: thick solid #738387;
   border-radius: 10px;
 
   .character-text {
-    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: "Futurama";
     color: #a6fdbc;
   }

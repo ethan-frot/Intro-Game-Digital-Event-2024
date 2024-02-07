@@ -35,6 +35,20 @@ body {
   overflow: hidden;
 }
 
+.lottie-1 {
+  position: absolute;
+  top: -30px;
+  right: 20px;
+  z-index: 3;
+}
+
+.lottie-2 {
+  position: absolute;
+  bottom: 20px;
+  right: -50px;
+  z-index: 3;
+}
+
 .step2-title-container {
   position: absolute;
   z-index: 1;
@@ -235,6 +249,20 @@ canvas {
   top: -60px;
   width: 1850px;
   height: 100%;
+}
+
+.all-steps-bar-1 {
+  position: absolute;
+  bottom: 123px;
+  width: 1915px;
+  z-index: 5;
+}
+
+.all-steps-bar-2 {
+  position: absolute;
+  bottom: 50px;
+  width: 1900px;
+  z-index: 5;
 }
 
 .cursor-step-3-6 {

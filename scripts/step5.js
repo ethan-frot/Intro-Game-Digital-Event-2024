@@ -38,13 +38,16 @@ function activeButtons(prediction) {
 
         // Hauteur du slider
         const sliderHeight = slideSize.height;
-        if (slider.id == 'range-1' || slider.id == 'range-2') {
-          slider.value = ((sliderBottomDistance - prediction.bbox[1]) / (sliderHeight / 100)) * 2.1;
+        if (slider.id == "range-2" || slider.id == "range-3") {
+          slider.value =
+            ((sliderBottomDistance - prediction.bbox[1]) /
+              (sliderHeight / 100)) *
+            2.1;
         }
 
         // Changement random d'un autre slider
-        if (slider.id == "range-3" && isSliderClicked == false) {
-          range3.value = getRandomNumber();
+        if (slider.id == "range-1" && isSliderClicked == false) {
+          range1.value = getRandomNumber();
           isSliderClicked = true;
         }
       }

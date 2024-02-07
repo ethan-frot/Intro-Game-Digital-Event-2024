@@ -9,6 +9,7 @@ let faceDetectActive = true;
 let intervalState = null;
 let faceScanerActive = false;
 let scanning = false;
+let isCharacterDisplayed = false;
 
 const MODEL_PATH = "../assets/face-api/models";
 
@@ -41,17 +42,15 @@ async function startVideo() {
 
 async function startFaceDetection() {
   const interval = setInterval(async () => {
-    // Utilise la détection faciale pour vérifier si un visage est présent devant l'écran
     const detections = await faceapi
       .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
       .withFaceLandmarks();
 
     if (detections) {
-      // S'il y a un visage détecté, lance la phrase vocale et arrête la vérification
       clearInterval(interval);
       await vocalQuestionAssistant("Bonjour, veuillez sourire pour commencer");
     }
-  }, 1000); // Vérifie toutes les secondes
+  }, 1000);
 }
 
 function handlePlay() {
@@ -89,6 +88,9 @@ function handlePlay() {
       ) {
         startUserScan();
         scanning = true;
+      } else if (isCharacterDisplayed === false) {
+        updateCharacterImage(highestValueKey, detections[0].gender);
+        isCharacterDisplayed = true;
       }
     }
 
@@ -161,6 +163,39 @@ async function startDescriptionBeforeRedirect() {
   setTimeout(function () {
     redirectToNextPage();
   }, 20000);
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function updateCharacterImage(mood, gender) {
+  const genderFolder = gender.toLowerCase() === "male" ? "men" : "women";
+
+  const characterContainer = document.querySelector(".character-container");
+  const characterImage = document.querySelector(".character");
+
+  const moods = [
+    "angry",
+    "disgusted",
+    "fearful",
+    "happy",
+    "neutral",
+    "sad",
+    "surprised",
+  ];
+
+  const selectedMood = moods.includes(mood)
+    ? mood
+    : moods[getRandomInt(0, moods.length - 1)];
+
+  const imagePath = `../assets/characters/${genderFolder}/${selectedMood}/`;
+
+  const imageNumber = getRandomInt(1, 11);
+
+  characterImage.src = `${imagePath}${imageNumber}.png`;
+
+  characterContainer.style.display = "flex";
 }
 
 function redirectToNextPage() {

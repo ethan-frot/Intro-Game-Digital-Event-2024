@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../style.css">
-  <title>step 4.5</title>
-</head>
-<body>
-  <img class="all-steps-background" src="/images/all-steps-background.png" />
-  <video class="loading-4-5-ia">
-    <source src="../assets/videos/step-4.5-ia.mp4" type="video/mp4" />
-    Votre navigateur ne prend pas en charge la balise vidéo.
-  </video>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>step 4.5</title>
+  </head>
+  <body>
+    <img class="all-steps-background" src="/images/all-steps-background.png" />
+    <video class="loading-4-5-ia" preload="auto">
+      <source src="../assets/videos/step-4.5-ia.mp4" type="video/mp4" />
+      Votre navigateur ne prend pas en charge la balise vidéo.
+    </video>
 
-  <video loop class="all-steps-bar-1">
-    <source src="/assets/videos/all-steps-bar-1.mp4" type="video/mp4" />
-    Votre navigateur ne prend pas en charge la balise vidéo.
-  </video>
-  <video loop class="all-steps-bar-2">
-    <source src="/assets/videos/all-steps-bar-2.mp4" type="video/mp4" />
-    Votre navigateur ne prend pas en charge la balise vidéo.
-  </video>
+    <video loop class="all-steps-bar-1" preload="auto">
+      <source src="/assets/videos/all-steps-bar-1.mp4" type="video/mp4" />
+      Votre navigateur ne prend pas en charge la balise vidéo.
+    </video>
+    <video loop class="all-steps-bar-2" preload="auto">
+      <source src="/assets/videos/all-steps-bar-2.mp4" type="video/mp4" />
+      Votre navigateur ne prend pas en charge la balise vidéo.
+    </video>
 
-  <canvas id="canvas" class="border canvasbox"></canvas>
-  <video id="myvideo" class="videobox" autoplay="autoplay"></video>
-  <div class="cursor cursor-step-3-6"></div>
+    <canvas id="canvas" class="border canvasbox"></canvas>
+    <video id="myvideo" class="videobox" autoplay="autoplay"></video>
+    <div class="cursor cursor-step-3-6"></div>
 
-  <script defer src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"></script>
-  <script defer src="../scripts/all-steps.js"></script>
-  <script src="../scripts/step4-5.js"></script>
-</body>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"
+    ></script>
+    <script defer src="../scripts/all-steps.js"></script>
+    <script src="../scripts/step4-5.js"></script>
+  </body>
 </html>

@@ -3,7 +3,7 @@ const btn2 = document.querySelector(".step-7-btn2");
 const btn3 = document.querySelector(".step-7-btn3");
 const btn4 = document.querySelector(".step-7-btn4");
 const backgroundVideo = document.querySelector(".step-7-background-video");
-const buttonClick = new Audio("../assets/sounds/step-7-button-click.mp4");
+const buttonClick = new Audio("../assets/sounds/step-7-button-click.mp3");
 
 const expectedSequence = [1, 3, 4, 2];
 let clickedSequence = [];

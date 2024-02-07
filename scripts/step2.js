@@ -74,17 +74,16 @@ async function initGame() {
 
 function startVideo() {
   handTrack.startVideo(video).then(() => {
+    if (isInitGame === false) {
+      initGame();
+      isInitGame = true;
+    }
     runDetection();
   });
 }
 startVideo();
-initGame();
 
 function runDetection() {
-  if (isInitGame === false) {
-    initGame();
-    isInitGame = true;
-  }
   model.detect(video).then((predictions) => {
     model.renderPredictions(predictions, canvas, context, video);
 

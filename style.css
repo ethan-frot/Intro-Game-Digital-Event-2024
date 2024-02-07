@@ -327,6 +327,7 @@ canvas {
 }
 
 .timer {
+  font-size: 55px;
   font-family: "Bitsential";
   color: #2f6976;
   position: absolute;

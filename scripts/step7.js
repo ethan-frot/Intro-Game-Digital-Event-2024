@@ -30,15 +30,8 @@ function pushButton(prediction) {
     ) {
       btn3.src = "../images/step-7-button-pressed.png";
 
-      setTimeout(() => {
-        redirectToNextPage();
-      }, 3000);
+      redirectToNextPage();
     }
-  } else {
-    btn1.src = "../images/step-7-button.png";
-    btn2.src = "../images/step-7-button.png";
-    btn3.src = "../images/step-7-button.png";
-    btn4.src = "../images/step-7-button.png";
   }
 }
 

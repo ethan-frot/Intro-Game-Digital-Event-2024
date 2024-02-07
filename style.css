@@ -230,7 +230,7 @@ canvas {
 .step-5-background-video,
 .angryIa,
 .step-7-background-video,
-.step-8-background-video {
+.end {
   position: absolute;
   top: -60px;
   width: 1850px;
@@ -455,6 +455,7 @@ input[type=range]:not(.vertical) {
 
 .step-8-text {
   position: absolute;
+  top: 500px;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
   animation: recAnimation 2s infinite 1s;

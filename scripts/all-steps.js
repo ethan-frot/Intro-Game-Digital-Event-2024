@@ -48,7 +48,7 @@ function runDetection() {
         if (
           window.location.href.endsWith("step3.html") ||
           window.location.href.endsWith("step6.html") ||
-          window.location.href.endsWith("step6.html")
+          window.location.href.endsWith("step8.html")
         ) {
           launchVideo();
         }

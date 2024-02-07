@@ -20,19 +20,52 @@
     </div>
     <div class="camera-container">
       <div class="scan-bar"></div>
-      <img src="../images/ui-image-1.png" alt="" class="ui-image-1" />
       <div class="rec-container">
         <div class="rec-icon">
           <span></span>
         </div>
         <span class="rec-txt">REC</span>
       </div>
+
+      <dotlottie-player
+        src="../assets/animations/step-1-lottie-1.json"
+        class="lottie-1"
+        background="transparent"
+        speed="1"
+        style="width: 200px; height: 200px"
+        direction="1"
+        playMode="normal"
+        loop
+        autoplay
+      ></dotlottie-player>
+      <dotlottie-player
+        src="../assets/animations/step-1-lottie-2.json"
+        class="lottie-2"
+        background="transparent"
+        speed="1"
+        style="width: 300px; height: 100px"
+        direction="1"
+        playMode="normal"
+        loop
+        autoplay
+      ></dotlottie-player>
+
       <div class="video">
         <canvas id="step-2-canvas"></canvas>
-        <video id="step-2-video" autoplay="autoplay" width="1920px" height="1080px"></video>
+        <video
+          id="step-2-video"
+          autoplay="autoplay"
+          width="1920px"
+          height="1080px"
+        ></video>
       </div>
     </div>
     <div class="cursor"></div>
+
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"

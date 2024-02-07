@@ -1,3 +1,5 @@
+import vocalQuestionAssistant from "../scripts/libs/elevenlabs.js"
+
 const pseudoField = document.querySelector(".step2-pseudo-field");
 const confirmButtons = document.querySelectorAll(".confirm");
 
@@ -22,7 +24,7 @@ const modelParams = {
   scoreThreshold: 0.6,
 };
 
-function vocalQuestionAssistant(file) {
+function vocalQuestionAssistantLocal(file) {
   return new Promise((resolve) => {
     let identity = new Audio(`../assets/sounds/${file}`);
     identity.onended = function () {
@@ -40,6 +42,7 @@ function vocalResponseRecordUser() {
     recognition.onresult = function (event) {
       let responseEvent = event.results[0][0].transcript;
       responseEvent.toLowerCase();
+
       resolve(responseEvent);
     };
 
@@ -50,18 +53,47 @@ function vocalResponseRecordUser() {
 async function initGame() {
   pseudoField.textContent = "_______";
   // demander pseudo
-  await vocalQuestionAssistant("step2_identity.mp3");
+  await vocalQuestionAssistantLocal("step2_identity.mp3");
   // écouter pseudo user
   const pseudoAsk = await vocalResponseRecordUser();
   pseudoField.textContent = pseudoAsk;
   //confirmation pseudo
-  await vocalQuestionAssistant("step2_confirmation.mp3");
+  await vocalQuestionAssistantLocal("step2_confirmation.mp3");
   buttonsDiv.classList.remove("hidden");
   confirmButtons.forEach((button) => {
     button.addEventListener("click", () => {
       if (button.id == "oui") {
         buttonsDiv.classList.add("hidden");
-        redirectToNextPage();
+        const params = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: pseudoAsk,
+          }),
+        }
+        fetch('https://digital-event-2024-api-js.onrender.com/create-solar-system', params)
+        .then((response) => response.json())
+        .then(async (data) => {
+          console.log("create data success: ", data);
+          if(data.status === "success"){
+            console.log("create data success: ", data);
+            redirectToNextPage();
+          } else {
+            console.log("create data error: ", data);
+            await vocalQuestionAssistant("Ce nom existe déja veuillez en choisir un autre nom");
+            setTimeout(() => {
+              initGame();
+            }, 5000);
+          }
+        })
+        .catch(async (error) => {
+          await vocalQuestionAssistant("Ce nom existe déja veuillez en choisir un autre nom");
+          console.error('create data Error:', error);
+        });
+
+        // redirectToNextPage();
       } else if (button.id == "non") {
         buttonsDiv.classList.add("hidden");
         initGame();

@@ -44,9 +44,10 @@ function runDetection() {
           activeButtons(prediction);
         }
 
-        // Step 3 & Step 6 :
+        // Step 3 & Step 4.5 & Step 6 & Step 8 :
         if (
           window.location.href.endsWith("step3.html") ||
+          window.location.href.endsWith("step4-5.html") ||
           window.location.href.endsWith("step6.html") ||
           window.location.href.endsWith("step8.html")
         ) {

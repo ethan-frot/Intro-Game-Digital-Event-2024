@@ -5,7 +5,7 @@ const btn4 = document.querySelector(".step-7-btn4");
 const backgroundVideo = document.querySelector(".step-7-background-video");
 const buttonClick = new Audio("../assets/sounds/step-7-button-click.mp4");
 
-const expectedSequence = [1, 4, 2, 3];
+const expectedSequence = [1, 3, 4, 2];
 let clickedSequence = [];
 let buttonsDisabled = false;
 

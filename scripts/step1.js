@@ -1,8 +1,4 @@
-import vocalQuestionAssistant from "../scripts/libs/elevenlabs.js"
-
-setTimeout(async () => {
-  await vocalQuestionAssistant("Bonjour, veuillez sourire pour commencer")
-}, 1000);
+import vocalQuestionAssistant from "../scripts/libs/elevenlabs.js";
 
 const video = document.getElementById("video");
 const canvasContainer = document.getElementById("canvasContainer");
@@ -36,10 +32,26 @@ async function startVideo() {
 
     video.onloadedmetadata = () => {
       video.play();
+      startFaceDetection();
     };
   } catch (err) {
     console.error("Error accessing webcam:", err);
   }
+}
+
+async function startFaceDetection() {
+  const interval = setInterval(async () => {
+    // Utilise la détection faciale pour vérifier si un visage est présent devant l'écran
+    const detections = await faceapi
+      .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
+      .withFaceLandmarks();
+
+    if (detections) {
+      // S'il y a un visage détecté, lance la phrase vocale et arrête la vérification
+      clearInterval(interval);
+      await vocalQuestionAssistant("Bonjour, veuillez sourire pour commencer");
+    }
+  }, 1000); // Vérifie toutes les secondes
 }
 
 function handlePlay() {
@@ -70,9 +82,13 @@ function handlePlay() {
         expressions[a] > expressions[b] ? a : b
       );
 
-      if (highestValueKey === "happy" && faceScanerActive === false && scanning === false) {
+      if (
+        highestValueKey === "happy" &&
+        faceScanerActive === false &&
+        scanning === false
+      ) {
         startUserScan();
-        scanning = true
+        scanning = true;
       }
     }
 
@@ -104,11 +120,10 @@ function handlePlay() {
       faceapi.draw.drawDetections(canvas, resizedDetections);
       faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
       faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
-
     } else {
       descriptionUser = {
         age: "18",
-        gender: "homme",
+        gender: "male",
       };
       ageHistory = [];
       currentWindowStartTime = new Date().getTime();
@@ -121,7 +136,7 @@ function handlePlay() {
 video.addEventListener("play", handlePlay);
 
 async function startUserScan() {
-  await vocalQuestionAssistant("Scane en cours veillez patienter")
+  await vocalQuestionAssistant("Scane en cours veillez patienter");
 
   faceScanerActive = true;
 
@@ -137,11 +152,11 @@ async function startDescriptionBeforeRedirect() {
 
   let msg = `Bonjour ${
     gender === "male" ? "commandant" : "commandante"
-  }, nous sommes en l'an 3450, votre age rééle est de ${
+  }, nous sommes en l'an 3450, votre age crystalique est de ${
     age + 1426
-  } ans, votre age crystalique est de ${age} ans. Nous allons pouvoir commencer`;
+  } ans, votre age rééle est de ${age} ans. Nous allons pouvoir commencer`;
 
-  await vocalQuestionAssistant(msg)  
+  await vocalQuestionAssistant(msg);
 
   setTimeout(function () {
     redirectToNextPage();

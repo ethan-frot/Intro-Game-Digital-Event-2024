@@ -17,9 +17,7 @@ function pushButton(prediction) {
 }
 
 oxygen.addEventListener("ended", function () {
-  setTimeout(function () {
-    redirectToNextPage();
-  }, 1000);
+  redirectToNextPage();
 });
 
 function redirectToNextPage() {

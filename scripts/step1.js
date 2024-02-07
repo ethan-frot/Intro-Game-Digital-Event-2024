@@ -128,9 +128,7 @@ async function startUserScan() {
   const scanBar = document.querySelector(".scan-bar");
   scanBar.classList.add("active");
 
-  setTimeout(function () {
-    startDescriptionBeforeRedirect();
-  }, 5000);
+  startDescriptionBeforeRedirect();
 }
 
 async function startDescriptionBeforeRedirect() {

@@ -61,9 +61,7 @@ async function initGame() {
     button.addEventListener("click", () => {
       if (button.id == "oui") {
         buttonsDiv.classList.add("hidden");
-        setTimeout(function () {
-          redirectToNextPage();
-        }, 1000);
+        redirectToNextPage();
       } else if (button.id == "non") {
         buttonsDiv.classList.add("hidden");
         initGame();

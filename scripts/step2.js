@@ -1,5 +1,5 @@
 const pseudoField = document.querySelector(".step2-pseudo-field");
-const confirmButtons = document.querySelectorAll('.confirm');
+const confirmButtons = document.querySelectorAll(".confirm");
 
 const video = document.querySelector("#step-2-video");
 const canvas = document.querySelector("#step-2-canvas");
@@ -7,12 +7,13 @@ const context = canvas.getContext("2d");
 const btn = document.querySelector(".btn");
 const cursor = document.querySelector(".cursor");
 
-const buttonYes = document.querySelector('#oui');
-const buttonNon = document.querySelector('#non');
-const buttonsDiv = document.querySelector('.buttons');
+const buttonYes = document.querySelector("#oui");
+const buttonNon = document.querySelector("#non");
+const buttonsDiv = document.querySelector(".buttons");
 
 let isVideo = false;
 let model = null;
+let isInitGame = false;
 
 const modelParams = {
   flipHorizontal: true,
@@ -20,11 +21,6 @@ const modelParams = {
   iouThreshold: 0.5,
   scoreThreshold: 0.6,
 };
-
-setTimeout(() => {
-  startVideo();
-  initGame();
-}, 500);
 
 function vocalQuestionAssistant(file) {
   return new Promise((resolve) => {
@@ -60,16 +56,16 @@ async function initGame() {
   pseudoField.textContent = pseudoAsk;
   //confirmation pseudo
   await vocalQuestionAssistant("step2_confirmation.mp3");
-  buttonsDiv.classList.remove('hidden');
-  confirmButtons.forEach(button => {
+  buttonsDiv.classList.remove("hidden");
+  confirmButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      if (button.id == 'oui') {
-        buttonsDiv.classList.add('hidden');
+      if (button.id == "oui") {
+        buttonsDiv.classList.add("hidden");
         setTimeout(function () {
           redirectToNextPage();
         }, 1000);
-      } else if (button.id == 'non') {
-        buttonsDiv.classList.add('hidden');
+      } else if (button.id == "non") {
+        buttonsDiv.classList.add("hidden");
         initGame();
       }
     });
@@ -81,8 +77,14 @@ function startVideo() {
     runDetection();
   });
 }
+startVideo();
+initGame();
 
 function runDetection() {
+  if (isInitGame === false) {
+    initGame();
+    isInitGame = true;
+  }
   model.detect(video).then((predictions) => {
     model.renderPredictions(predictions, canvas, context, video);
 
@@ -139,16 +141,16 @@ function checkCollision(block) {
 function closeHand(prediction) {
   if (prediction.label === "closed") {
     if (checkCollision(buttonYes.getBoundingClientRect())) {
-      buttonsDiv.classList.add('hidden');
+      buttonsDiv.classList.add("hidden");
       setTimeout(() => {
         cursor.style.backgroundImage = "url('/images/closed-cursor.png')";
-        buttonYes.click()
+        buttonYes.click();
       }, 200);
     } else if (checkCollision(buttonNon.getBoundingClientRect())) {
-      buttonsDiv.classList.add('hidden');
+      buttonsDiv.classList.add("hidden");
       setTimeout(() => {
         cursor.style.backgroundImage = "url('/images/closed-cursor.png')";
-        buttonNon.click()
+        buttonNon.click();
       }, 200);
     }
   } else {
@@ -157,7 +159,7 @@ function closeHand(prediction) {
 }
 
 function redirectToNextPage() {
-  window.location.href = "../html/step3.html";
+  window.location.href = "step3.html";
 }
 
 window.addEventListener("keydown", function (event) {

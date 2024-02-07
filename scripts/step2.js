@@ -1,4 +1,4 @@
-import vocalQuestionAssistant from "../scripts/libs/elevenlabs.js"
+import vocalQuestionAssistant from "../scripts/libs/elevenlabs.js";
 
 const pseudoField = document.querySelector(".step2-pseudo-field");
 const confirmButtons = document.querySelectorAll(".confirm");
@@ -72,26 +72,33 @@ async function initGame() {
           body: JSON.stringify({
             username: pseudoAsk,
           }),
-        }
-        fetch('https://digital-event-2024-api-js.onrender.com/create-solar-system', params)
-        .then((response) => response.json())
-        .then(async (data) => {
-          console.log("create data success: ", data);
-          if(data.status === "success"){
+        };
+        fetch(
+          "https://digital-event-2024-api-js.onrender.com/create-solar-system",
+          params
+        )
+          .then((response) => response.json())
+          .then(async (data) => {
             console.log("create data success: ", data);
-            redirectToNextPage();
-          } else {
-            console.log("create data error: ", data);
-            await vocalQuestionAssistant("Ce nom existe déja veuillez en choisir un autre nom");
-            setTimeout(() => {
-              initGame();
-            }, 5000);
-          }
-        })
-        .catch(async (error) => {
-          await vocalQuestionAssistant("Ce nom existe déja veuillez en choisir un autre nom");
-          console.error('create data Error:', error);
-        });
+            if (data.status === "success") {
+              console.log("create data success: ", data);
+              redirectToNextPage();
+            } else {
+              console.log("create data error: ", data);
+              await vocalQuestionAssistant(
+                "Ce nom existe déja veuillez choisir un autre nom"
+              );
+              setTimeout(() => {
+                initGame();
+              }, 5000);
+            }
+          })
+          .catch(async (error) => {
+            await vocalQuestionAssistant(
+              "Ce nom existe déja veuillez choisir un autre nom"
+            );
+            console.error("create data Error:", error);
+          });
 
         // redirectToNextPage();
       } else if (button.id == "non") {

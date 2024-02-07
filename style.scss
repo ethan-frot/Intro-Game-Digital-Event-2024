@@ -245,6 +245,20 @@ canvas {
   height: 100%;
 }
 
+.all-steps-bar-1 {
+  position: absolute;
+  bottom: 123px;
+  width: 1915px;
+  z-index: 5;
+}
+
+.all-steps-bar-2 {
+  position: absolute;
+  bottom: 50px;
+  width: 1900px;
+  z-index: 5;
+}
+
 .cursor-step-3-6 {
   display: none;
 }

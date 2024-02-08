@@ -208,3 +208,9 @@ window.addEventListener("keydown", function (event) {
     window.location.href = "../index.html";
   }
 });
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowLeft") {
+    initGame();
+  }
+});

@@ -363,7 +363,7 @@ canvas {
   position: absolute;
   background-color: var(--slider-bar-color);
   width: 48px;
-  height: 5px;
+  height: 35px;
 }
 
 .range-bg {

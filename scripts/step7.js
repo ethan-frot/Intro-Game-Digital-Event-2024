@@ -12,7 +12,7 @@ let buttonsDisabled = false;
 function pushButton(prediction) {
   backgroundVideo.play();
 
-  if (buttonsDisabled) return; // Si les boutons sont désactivés, ne rien faire
+  if (buttonsDisabled) return;
 
   if (prediction.label === "closed") {
     if (
@@ -64,7 +64,7 @@ function checkSequence() {
 function resetSequence() {
   clickedSequence = [];
   resetButtons();
-  disableButtonsTemporarily(1000); // Désactiver les boutons pendant 1 seconde
+  disableButtonsTemporarily(1000);
 }
 
 function resetButtons() {
@@ -88,6 +88,12 @@ function arraysEqual(arr1, arr2) {
   }
   return true;
 }
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowLeft") {
+    resetSequence();
+  }
+});
 
 function redirectToNextPage() {
   window.location.href = "step8.html";

@@ -76,7 +76,9 @@ async function initGame() {
 function startVideo() {
   handTrack.startVideo(video).then(() => {
     if (isInitGame === false) {
-      initGame();
+      setTimeout(() => {
+        initGame();
+      }, 2500);
       isInitGame = true;
     }
     runDetection();

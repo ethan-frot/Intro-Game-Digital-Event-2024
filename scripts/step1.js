@@ -26,6 +26,16 @@ Promise.all([
   })
 );
 
+function vocalQuestionAssistantLocal(file) {
+  return new Promise((resolve) => {
+    let identity = new Audio(`../assets/sounds/${file}`);
+    identity.onended = function () {
+      resolve();
+    };
+    identity.play();
+  });
+}
+
 async function startVideo() {
   try {
     const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
@@ -53,7 +63,7 @@ async function startFaceDetection() {
 
     if (detections) {
       clearInterval(interval);
-      await vocalQuestionAssistant("Bonjour, veuillez sourire pour commencer");
+      await vocalQuestionAssistantLocal('sourire_pour_commencer.mp3');
     }
   }, 1000);
 }
@@ -142,7 +152,7 @@ function handlePlay() {
 video.addEventListener("play", handlePlay);
 
 async function startUserScan() {
-  await vocalQuestionAssistant("Scane en cours veillez patienter");
+  await vocalQuestionAssistantLocal('scan_en_cours.mp3');
 
   faceScanerActive = true;
 
@@ -153,20 +163,8 @@ async function startUserScan() {
 }
 
 async function startDescriptionBeforeRedirect() {
-  const { age, gender } = descriptionUser;
-  console.log("age : ", age);
-
-  let msg = `Bonjour ${
-    gender === "male" ? "commandant" : "commandante"
-  }, nous sommes en l'an 3450, votre age crystalique est de ${
-    age + 1426
-  } ans, votre age rééle est de ${age} ans. Nous allons pouvoir commencer`;
-
-  await vocalQuestionAssistant(msg);
-
-  setTimeout(function () {
-    redirectToNextPage();
-  }, 20000);
+  await vocalQuestionAssistantLocal('bonjour_capitaine.mp3');
+  redirectToNextPage();
 }
 
 function redirectToNextPage() {

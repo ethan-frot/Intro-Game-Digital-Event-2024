@@ -58,7 +58,7 @@ async function initGame() {
   const pseudoAsk = await vocalResponseRecordUser();
   pseudoField.textContent = pseudoAsk;
   //confirmation pseudo
-  await vocalQuestionAssistant("step2_confirmation.mp3");
+  await vocalQuestionAssistantLocal("step2_confirmation.mp3");
   buttonsDiv.classList.remove("hidden");
   confirmButtons.forEach((button) => {
     button.addEventListener("click", () => {

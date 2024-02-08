@@ -58,17 +58,13 @@ async function initGame() {
   const pseudoAsk = await vocalResponseRecordUser();
   pseudoField.textContent = pseudoAsk;
   //confirmation pseudo
-  await vocalQuestionAssistantLocal("step2_confirmation.mp3");
+  await vocalQuestionAssistant("step2_confirmation.mp3");
   buttonsDiv.classList.remove("hidden");
   confirmButtons.forEach((button) => {
     button.addEventListener("click", () => {
       if (button.id == "oui") {
         buttonsDiv.classList.add("hidden");
-        setTimeout(() => {
-          initGame();
-        }, 5000);
-
-        // redirectToNextPage();
+        redirectToNextPage();
       } else if (button.id == "non") {
         buttonsDiv.classList.add("hidden");
         initGame();

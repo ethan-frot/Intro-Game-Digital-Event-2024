@@ -95,7 +95,7 @@ function handlePlay() {
           startUserScan();
           scanning = true;
         }
-      }, 6000);
+      }, 3000);
     }
 
     if (detections && detections.length > 0) {

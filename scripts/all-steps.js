@@ -3,6 +3,9 @@ const canvas = document.querySelector("#canvas");
 const context = canvas.getContext("2d");
 const cursor = document.querySelector(".cursor");
 
+const bar1 = document.querySelector(".all-steps-bar-1");
+const bar2 = document.querySelector(".all-steps-bar-2");
+
 let isVideo = false;
 let model = null;
 
@@ -32,6 +35,9 @@ function runDetection() {
         closeHand(prediction);
 
         // Every steps
+        bar1.play();
+        bar2.play();
+
         // Step 4 & Step 7 :
         if (
           window.location.href.endsWith("step4.html") ||

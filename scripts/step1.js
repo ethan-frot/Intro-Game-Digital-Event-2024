@@ -81,17 +81,20 @@ function handlePlay() {
         expressions[a] > expressions[b] ? a : b
       );
 
-      if (
-        highestValueKey === "happy" &&
-        faceScanerActive === false &&
-        scanning === false
-      ) {
-        startUserScan();
-        scanning = true;
-      } else if (isCharacterDisplayed === false) {
+      setTimeout(() => {
+        if (
+          highestValueKey === "happy" &&
+          faceScanerActive === false &&
+          scanning === false
+        ) {
+          startUserScan();
+          scanning = true;
+        }
+      }, 6000);
+      if (isCharacterDisplayed === false) {
         setTimeout(() => {
           updateCharacterImage(highestValueKey, detections[0].gender);
-        }, 3000);
+        }, 4000);
         isCharacterDisplayed = true;
       }
     }

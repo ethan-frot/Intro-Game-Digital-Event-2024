@@ -64,41 +64,9 @@ async function initGame() {
     button.addEventListener("click", () => {
       if (button.id == "oui") {
         buttonsDiv.classList.add("hidden");
-        const params = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: pseudoAsk,
-          }),
-        };
-        fetch(
-          "https://digital-event-2024-api-js.onrender.com/create-solar-system",
-          params
-        )
-          .then((response) => response.json())
-          .then(async (data) => {
-            console.log("create data success: ", data);
-            if (data.status === "success") {
-              console.log("create data success: ", data);
-              redirectToNextPage();
-            } else {
-              console.log("create data error: ", data);
-              await vocalQuestionAssistant(
-                "Ce nom existe déja veuillez choisir un autre nom"
-              );
-              setTimeout(() => {
-                initGame();
-              }, 5000);
-            }
-          })
-          .catch(async (error) => {
-            await vocalQuestionAssistant(
-              "Ce nom existe déja veuillez choisir un autre nom"
-            );
-            console.error("create data Error:", error);
-          });
+        setTimeout(() => {
+          initGame();
+        }, 5000);
 
         // redirectToNextPage();
       } else if (button.id == "non") {
@@ -198,13 +166,13 @@ function redirectToNextPage() {
 }
 
 window.addEventListener("keydown", function (event) {
-  if (event.code === "ArrowDown") {
+  if (event.code === "ArrowRight") {
     redirectToNextPage();
   }
 });
 
 window.addEventListener("keydown", function (event) {
-  if (event.code === "ArrowRight") {
+  if (event.code === "ArrowDown") {
     window.location.href = "../index.html";
   }
 });

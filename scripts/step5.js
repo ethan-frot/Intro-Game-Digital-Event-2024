@@ -37,14 +37,32 @@ function activeButtons(prediction) {
         // Hauteur du slider
         const sliderHeight = slideSize.height;
         if (slider.id == "range-1") {
-          slider.value = ((sliderBottomDistance - prediction.bbox[1]) / (sliderHeight / 100)) * 2.1;
-          range2.value = ((sliderBottomDistance - prediction.bbox[1]) / (sliderHeight / 100)) * 2.8;
+          slider.value =
+            ((sliderBottomDistance - prediction.bbox[1]) /
+              (sliderHeight / 100)) *
+            2.1;
+          range2.value =
+            ((sliderBottomDistance - prediction.bbox[1]) /
+              (sliderHeight / 100)) *
+            2.8;
         } else if (slider.id == "range-2") {
-          slider.value = ((sliderBottomDistance - prediction.bbox[1]) / (sliderHeight / 100)) * 2.1;
-          range3.value = ((sliderBottomDistance - prediction.bbox[1]) / (sliderHeight / 100)) * 0.6;
+          slider.value =
+            ((sliderBottomDistance - prediction.bbox[1]) /
+              (sliderHeight / 100)) *
+            2.1;
+          range3.value =
+            ((sliderBottomDistance - prediction.bbox[1]) /
+              (sliderHeight / 100)) *
+            0.6;
         } else if (slider.id == "range-3") {
-          slider.value = ((sliderBottomDistance - prediction.bbox[1]) / (sliderHeight / 100)) * 2.1;
-          range1.value = ((sliderBottomDistance - prediction.bbox[1]) / (sliderHeight / 100)) * 1.2;
+          slider.value =
+            ((sliderBottomDistance - prediction.bbox[1]) /
+              (sliderHeight / 100)) *
+            2.1;
+          range1.value =
+            ((sliderBottomDistance - prediction.bbox[1]) /
+              (sliderHeight / 100)) *
+            1.2;
         }
       }
     }
@@ -68,6 +86,12 @@ function redirectToNextPage() {
 
 window.addEventListener("keydown", function (event) {
   if (event.code === "ArrowRight") {
+    redirectToNextPage();
+  }
+});
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowDown") {
     window.location.href = "../index.html";
   }
 });

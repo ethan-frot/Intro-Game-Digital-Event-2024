@@ -19,6 +19,12 @@ function redirectToNextPage() {
 
 window.addEventListener("keydown", function (event) {
   if (event.code === "ArrowRight") {
+    redirectToNextPage();
+  }
+});
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowDown") {
     window.location.href = "../index.html";
   }
 });

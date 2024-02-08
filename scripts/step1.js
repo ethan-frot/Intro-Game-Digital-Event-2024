@@ -9,7 +9,6 @@ let faceDetectActive = true;
 let intervalState = null;
 let faceScanerActive = false;
 let scanning = false;
-let isCharacterDisplayed = false;
 
 const MODEL_PATH = "../assets/face-api/models";
 
@@ -19,7 +18,13 @@ Promise.all([
   faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_PATH),
   faceapi.nets.faceExpressionNet.loadFromUri(MODEL_PATH),
   faceapi.nets.ageGenderNet.loadFromUri(MODEL_PATH),
-]).then(startVideo);
+]).then(
+  window.addEventListener("keydown", function (event) {
+    if (event.code === "ArrowLeft") {
+      startVideo();
+    }
+  })
+);
 
 async function startVideo() {
   try {
@@ -91,12 +96,6 @@ function handlePlay() {
           scanning = true;
         }
       }, 6000);
-      if (isCharacterDisplayed === false) {
-        setTimeout(() => {
-          updateCharacterImage(highestValueKey, detections[0].gender);
-        }, 4000);
-        isCharacterDisplayed = true;
-      }
     }
 
     if (detections && detections.length > 0) {
@@ -168,39 +167,6 @@ async function startDescriptionBeforeRedirect() {
   setTimeout(function () {
     redirectToNextPage();
   }, 20000);
-}
-
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function updateCharacterImage(mood, gender) {
-  const genderFolder = gender.toLowerCase() === "male" ? "men" : "women";
-
-  const characterContainer = document.querySelector(".character-container");
-  const characterImage = document.querySelector(".character");
-
-  const moods = [
-    "angry",
-    "disgusted",
-    "fearful",
-    "happy",
-    "neutral",
-    "sad",
-    "surprised",
-  ];
-
-  const selectedMood = moods.includes(mood)
-    ? mood
-    : moods[getRandomInt(0, moods.length - 1)];
-
-  const imagePath = `../assets/characters/${genderFolder}/${selectedMood}/`;
-
-  const imageNumber = getRandomInt(1, 11);
-
-  characterImage.src = `${imagePath}${imageNumber}.png`;
-
-  characterContainer.style.display = "flex";
 }
 
 function redirectToNextPage() {

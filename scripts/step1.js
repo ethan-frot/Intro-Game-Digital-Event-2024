@@ -57,8 +57,8 @@ function handlePlay() {
   if (!faceDetectActive) return;
 
   const canvas = document.createElement("canvas");
-  canvas.width = video.width; // Set the width attribute
-  canvas.height = video.height; // Set the height attribute
+  canvas.width = video.width;
+  canvas.height = video.height;
   canvasContainer.appendChild(canvas);
 
   const displaySize = { width: video.width, height: video.height };
@@ -89,7 +89,9 @@ function handlePlay() {
         startUserScan();
         scanning = true;
       } else if (isCharacterDisplayed === false) {
-        updateCharacterImage(highestValueKey, detections[0].gender);
+        setTimeout(() => {
+          updateCharacterImage(highestValueKey, detections[0].gender);
+        }, 3000);
         isCharacterDisplayed = true;
       }
     }

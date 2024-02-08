@@ -114,10 +114,10 @@ body {
   background-position: center;
 }
 .buttons {
-  z-index: 2;
   display: flex;
-  bottom: 256px;
+  gap: 1000px;
   position: absolute;
+  z-index: 2;
 }
 .confirm {
   background-size: contain;
@@ -129,13 +129,6 @@ body {
 }
 #non {
   background-image: url(images/non-button-normal.png);
-}
-.ui-image-1 {
-  position: absolute;
-  top: 50px;
-  right: 50px;
-  z-index: 99;
-  width: 200px;
 }
 
 .rec-container {
